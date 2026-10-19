@@ -1,0 +1,23 @@
+# 本地凭据与私密配置
+.env
+.env.*
+!.env.example
+.npmrc
+.netrc
+.pypirc
+*.pem
+*.key
+*.p12
+*.pfx
+
+# 本地依赖、缓存与编辑器文件
+node_modules/
+__pycache__/
+*.py[cod]
+.venv/
+.vscode/
+.idea/
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini
