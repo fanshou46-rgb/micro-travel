@@ -1,0 +1,426 @@
+{
+  "date": "2026-10-19",
+  "version": "1.1",
+  "flows": [
+    {
+      "test": "city flow and return home",
+      "passed": true
+    },
+    {
+      "containsGreenway": true,
+      "nodes": 6,
+      "test": "nature route",
+      "title": "东湖自然治愈之旅"
+    },
+    {
+      "test": "nature memory card",
+      "title": "东湖自然治愈之旅"
+    },
+    {
+      "test": "food preference first",
+      "title": "武汉美食探索"
+    },
+    {
+      "hasLiangdao": true,
+      "hasTanhualin": true,
+      "nodes": 6,
+      "test": "food route"
+    },
+    {
+      "test": "food memory card",
+      "title": "武汉美食探索"
+    },
+    {
+      "test": "mobile menu opens",
+      "expanded": "true"
+    },
+    {
+      "test": "Escape closes menu",
+      "expanded": "false"
+    },
+    {
+      "focused": "style",
+      "style": "city",
+      "test": "keyboard radio navigation"
+    },
+    {
+      "hash": "#about",
+      "heading": "旅行不必很远，快乐可以很近。",
+      "test": "cross-page about link",
+      "top": 100
+    }
+  ],
+  "responsiveInitial": [
+    {
+      "broken": [],
+      "contentWidth": 1903,
+      "height": 1080,
+      "overflow": false,
+      "path": "/index.html",
+      "width": 1920
+    },
+    {
+      "broken": [],
+      "contentWidth": 1903,
+      "height": 1080,
+      "overflow": false,
+      "path": "/choose.html",
+      "width": 1920
+    },
+    {
+      "broken": [],
+      "contentWidth": 1903,
+      "height": 1080,
+      "overflow": false,
+      "path": "/routes.html",
+      "width": 1920
+    },
+    {
+      "broken": [],
+      "contentWidth": 1903,
+      "height": 1080,
+      "overflow": false,
+      "path": "/detail.html?route=jianghan",
+      "width": 1920
+    },
+    {
+      "broken": [],
+      "contentWidth": 1903,
+      "height": 1080,
+      "overflow": false,
+      "path": "/finish.html?route=wuhan-food",
+      "width": 1920
+    },
+    {
+      "broken": [],
+      "contentWidth": 1423,
+      "height": 900,
+      "overflow": false,
+      "path": "/index.html",
+      "width": 1440
+    },
+    {
+      "broken": [],
+      "contentWidth": 1423,
+      "height": 900,
+      "overflow": false,
+      "path": "/choose.html",
+      "width": 1440
+    },
+    {
+      "broken": [],
+      "contentWidth": 1423,
+      "height": 900,
+      "overflow": false,
+      "path": "/routes.html",
+      "width": 1440
+    },
+    {
+      "broken": [],
+      "contentWidth": 1423,
+      "height": 900,
+      "overflow": false,
+      "path": "/detail.html?route=jianghan",
+      "width": 1440
+    },
+    {
+      "broken": [],
+      "contentWidth": 1423,
+      "height": 900,
+      "overflow": false,
+      "path": "/finish.html?route=wuhan-food",
+      "width": 1440
+    },
+    {
+      "broken": [],
+      "contentWidth": 1349,
+      "height": 768,
+      "overflow": false,
+      "path": "/index.html",
+      "width": 1366
+    },
+    {
+      "broken": [],
+      "contentWidth": 1349,
+      "height": 768,
+      "overflow": false,
+      "path": "/choose.html",
+      "width": 1366
+    },
+    {
+      "broken": [],
+      "contentWidth": 1349,
+      "height": 768,
+      "overflow": false,
+      "path": "/routes.html",
+      "width": 1366
+    },
+    {
+      "broken": [],
+      "contentWidth": 1349,
+      "height": 768,
+      "overflow": false,
+      "path": "/detail.html?route=jianghan",
+      "width": 1366
+    },
+    {
+      "broken": [],
+      "contentWidth": 1349,
+      "height": 768,
+      "overflow": false,
+      "path": "/finish.html?route=wuhan-food",
+      "width": 1366
+    },
+    {
+      "broken": [],
+      "contentWidth": 373,
+      "height": 840,
+      "overflow": false,
+      "path": "/index.html",
+      "width": 390
+    },
+    {
+      "broken": [],
+      "contentWidth": 373,
+      "height": 840,
+      "overflow": false,
+      "path": "/choose.html",
+      "width": 390
+    },
+    {
+      "broken": [],
+      "contentWidth": 373,
+      "height": 840,
+      "overflow": false,
+      "path": "/routes.html",
+      "width": 390
+    },
+    {
+      "broken": [],
+      "contentWidth": 373,
+      "height": 840,
+      "overflow": false,
+      "path": "/detail.html?route=jianghan",
+      "width": 390
+    },
+    {
+      "broken": [],
+      "contentWidth": 373,
+      "height": 840,
+      "overflow": false,
+      "path": "/finish.html?route=wuhan-food",
+      "width": 390
+    },
+    {
+      "broken": [],
+      "contentWidth": 343,
+      "height": 800,
+      "overflow": false,
+      "path": "/index.html",
+      "width": 360
+    },
+    {
+      "broken": [],
+      "contentWidth": 343,
+      "height": 800,
+      "overflow": false,
+      "path": "/choose.html",
+      "width": 360
+    },
+    {
+      "broken": [],
+      "contentWidth": 343,
+      "height": 800,
+      "overflow": false,
+      "path": "/routes.html",
+      "width": 360
+    },
+    {
+      "broken": [],
+      "contentWidth": 343,
+      "height": 800,
+      "overflow": false,
+      "path": "/detail.html?route=jianghan",
+      "width": 360
+    },
+    {
+      "broken": [],
+      "contentWidth": 346,
+      "height": 800,
+      "overflow": false,
+      "path": "/finish.html?route=wuhan-food",
+      "width": 360
+    }
+  ],
+  "responsiveNarrowAfterFix": [
+    {
+      "client": 303,
+      "overflow": false,
+      "page": "/index.html",
+      "scroll": 303,
+      "width": 320
+    },
+    {
+      "client": 303,
+      "overflow": false,
+      "page": "/choose.html",
+      "scroll": 303,
+      "width": 320
+    },
+    {
+      "client": 303,
+      "overflow": false,
+      "page": "/routes.html",
+      "scroll": 303,
+      "width": 320
+    },
+    {
+      "client": 303,
+      "overflow": false,
+      "page": "/detail.html",
+      "scroll": 303,
+      "width": 320
+    },
+    {
+      "client": 303,
+      "overflow": false,
+      "page": "/finish.html",
+      "scroll": 303,
+      "width": 320
+    },
+    {
+      "client": 343,
+      "overflow": false,
+      "page": "/index.html",
+      "scroll": 343,
+      "width": 360
+    },
+    {
+      "client": 343,
+      "overflow": false,
+      "page": "/choose.html",
+      "scroll": 343,
+      "width": 360
+    },
+    {
+      "client": 343,
+      "overflow": false,
+      "page": "/routes.html",
+      "scroll": 343,
+      "width": 360
+    },
+    {
+      "client": 343,
+      "overflow": false,
+      "page": "/detail.html",
+      "scroll": 343,
+      "width": 360
+    },
+    {
+      "client": 343,
+      "overflow": false,
+      "page": "/finish.html",
+      "scroll": 343,
+      "width": 360
+    },
+    {
+      "client": 373,
+      "overflow": false,
+      "page": "/index.html",
+      "scroll": 373,
+      "width": 390
+    },
+    {
+      "client": 373,
+      "overflow": false,
+      "page": "/choose.html",
+      "scroll": 373,
+      "width": 390
+    },
+    {
+      "client": 373,
+      "overflow": false,
+      "page": "/routes.html",
+      "scroll": 373,
+      "width": 390
+    },
+    {
+      "client": 373,
+      "overflow": false,
+      "page": "/detail.html",
+      "scroll": 373,
+      "width": 390
+    },
+    {
+      "client": 373,
+      "overflow": false,
+      "page": "/finish.html",
+      "scroll": 373,
+      "width": 390
+    }
+  ],
+  "edgeCasesBeforeAnimationFix": [
+    {
+      "overflow": false,
+      "page": "/detail.html",
+      "title": "东湖自然治愈之旅"
+    },
+    {
+      "overflow": false,
+      "page": "/detail.html?route=invalid",
+      "title": "东湖自然治愈之旅"
+    },
+    {
+      "overflow": true,
+      "page": "/finish.html?route=invalid&name=%3Cscript%3Ebad%3C%2Fscript%3E",
+      "route": "东湖自然治愈之旅",
+      "title": "今日份的小美好，已成功收藏。"
+    },
+    {
+      "overflow": false,
+      "page": "/choose.html?style=invalid&duration=invalid",
+      "style": "nature",
+      "title": "今天，你想遇见怎样的风景？"
+    },
+    {
+      "overflow": false,
+      "page": "/routes.html?style=invalid",
+      "title": "好风景，已经为你准备好了。"
+    }
+  ],
+  "finalFinishChecks": [
+    {
+      "client": 303,
+      "headlineLines": 40,
+      "overflow": false,
+      "scroll": 303,
+      "test": "final finish fallback and layout",
+      "title": "东湖自然治愈之旅",
+      "width": 320
+    },
+    {
+      "client": 343,
+      "headlineLines": 40,
+      "overflow": false,
+      "scroll": 343,
+      "test": "final finish fallback and layout",
+      "title": "东湖自然治愈之旅",
+      "width": 360
+    },
+    {
+      "client": 373,
+      "headlineLines": 40,
+      "overflow": false,
+      "scroll": 373,
+      "test": "final finish fallback and layout",
+      "title": "东湖自然治愈之旅",
+      "width": 390
+    }
+  ],
+  "finalLogs": [],
+  "notes": [
+    "file URL navigation blocked by browser policy; direct-file mode reviewed statically",
+    "Narrow-screen postcard rotation and stamp overflow fixed after initial checks",
+    "Final small-screen completion heading uses balanced two-line layout"
+  ]
+}

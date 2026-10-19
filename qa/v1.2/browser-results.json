@@ -1,0 +1,928 @@
+{
+  "version": "1.2",
+  "date": "2026-10-19",
+  "interactions": [
+    {
+      "test": "carousel manual controls",
+      "before": "0",
+      "after": "1",
+      "paused": "true"
+    },
+    {
+      "test": "direct finish is preview",
+      "note": " 此页为纪念卡预览，直接访问不会增加打卡或纪念章。",
+      "unearned": 0
+    },
+    {
+      "period": "day",
+      "test": "day story entry",
+      "theme": "day"
+    },
+    {
+      "navLink": "index.html?period=night",
+      "period": "night",
+      "test": "choose night appearance",
+      "theme": "night"
+    },
+    {
+      "cards": 3,
+      "first": "东湖 · 半日湖光",
+      "period": "day",
+      "test": "day route recommendations"
+    },
+    {
+      "test": "day itinerary nodes",
+      "nodes": 4
+    },
+    {
+      "test": "stay selected",
+      "text": "已加入延住计划：听风湖畔酒店\n选择会出现在本次微旅纪念卡上，不产生真实预订。\n取消延住计划"
+    },
+    {
+      "test": "stay canceled",
+      "selectedCards": 0
+    },
+    {
+      "test": "day completion and lodging recall",
+      "title": "东湖 · 半日湖光",
+      "stay": "多留一晚 · 绿野小院民宿\n延住计划已收好 · 未产生真实预订\n调整计划",
+      "record": " 模拟完成 · 已探索 3 个不同地点，重复地点不累加。"
+    },
+    {
+      "test": "duplicate completion does not increase count",
+      "record": " 模拟完成 · 已探索 3 个不同地点，重复地点不累加。"
+    },
+    {
+      "test": "night city preference",
+      "title": "江汉路 · 灯火漫游",
+      "theme": "night"
+    },
+    {
+      "test": "scenic experience offer",
+      "heading": "老汉口建筑漫步"
+    },
+    {
+      "focusedOffer": true,
+      "open": false,
+      "test": "dialog Escape and focus restoration"
+    },
+    {
+      "test": "night badge unlocks dual card",
+      "dual": 1,
+      "badges": 2,
+      "stays": 0,
+      "record": " 模拟完成 · 已探索 6 个不同地点，重复地点不累加。"
+    },
+    {
+      "test": "home remembers night and local progress",
+      "period": "night",
+      "count": "06",
+      "rows": 3
+    },
+    {
+      "test": "user ranking expanded",
+      "rows": 5
+    },
+    {
+      "test": "user exploration details",
+      "heading": "小鹿同学的探索手记",
+      "places": 9
+    },
+    {
+      "test": "my exploration record",
+      "places": 6
+    },
+    {
+      "test": "ranking keyboard navigation",
+      "selected": "景区好评榜",
+      "rows": 3
+    },
+    {
+      "dialogOpen": true,
+      "dialogWidth": 269,
+      "overflow": false,
+      "test": "320px stay dialog",
+      "viewport": 320
+    },
+    {
+      "test": "full food route completion",
+      "title": "武汉美食探索",
+      "record": " 模拟完成 · 已探索 9 个不同地点，重复地点不累加。"
+    },
+    {
+      "test": "mobile menu open",
+      "expanded": "true"
+    },
+    {
+      "test": "mobile menu escape",
+      "expanded": "false"
+    },
+    {
+      "test": "carousel automatic advance",
+      "before": "2",
+      "after": "1",
+      "paused": "false"
+    },
+    {
+      "test": "first pause click after fix",
+      "label": "继续轮播",
+      "pressed": "true"
+    },
+    {
+      "test": "pause holds after six seconds",
+      "before": "2",
+      "after": "2",
+      "pressed": "true"
+    },
+    {
+      "test": "resume remains focus-paused",
+      "pressed": "false",
+      "focusPaused": "true"
+    },
+    {
+      "test": "final version",
+      "version": "v1.2"
+    },
+    {
+      "test": "interest filter",
+      "visible": [
+        "武汉 · 入夜寻味"
+      ]
+    },
+    {
+      "test": "restore all routes",
+      "cards": 3
+    },
+    {
+      "test": "replace selected stay",
+      "selected": "听风湖畔酒店",
+      "selectedCards": 1
+    }
+  ],
+  "itineraries": [
+    {
+      "nodes": 4,
+      "stays": 2,
+      "theme": "day",
+      "times": [
+        "09:00",
+        "10:00",
+        "11:30",
+        "13:00"
+      ],
+      "title": "东湖 · 半日湖光",
+      "url": "?route=donghu&period=day"
+    },
+    {
+      "nodes": 4,
+      "stays": 2,
+      "theme": "night",
+      "times": [
+        "18:00",
+        "19:00",
+        "20:00",
+        "21:30"
+      ],
+      "title": "东湖 · 湖岸晚风",
+      "url": "?route=donghu&period=night"
+    },
+    {
+      "nodes": 6,
+      "stays": 2,
+      "theme": "day",
+      "times": [
+        "09:00",
+        "10:00",
+        "12:00",
+        "14:00",
+        "16:30",
+        "18:00"
+      ],
+      "title": "东湖自然治愈之旅",
+      "url": "?route=donghu&period=full"
+    },
+    {
+      "nodes": 4,
+      "stays": 2,
+      "theme": "day",
+      "times": [
+        "09:00",
+        "10:00",
+        "11:30",
+        "13:00"
+      ],
+      "title": "江汉路 · 街角半日",
+      "url": "?route=jianghan&period=day"
+    },
+    {
+      "nodes": 4,
+      "stays": 2,
+      "theme": "night",
+      "times": [
+        "18:00",
+        "19:00",
+        "20:15",
+        "22:00"
+      ],
+      "title": "江汉路 · 灯火漫游",
+      "url": "?route=jianghan&period=night"
+    },
+    {
+      "nodes": 6,
+      "stays": 2,
+      "theme": "day",
+      "times": [
+        "09:00",
+        "10:30",
+        "12:00",
+        "14:00",
+        "16:30",
+        "18:00"
+      ],
+      "title": "江汉路城市漫游",
+      "url": "?route=jianghan&period=full"
+    },
+    {
+      "nodes": 4,
+      "stays": 2,
+      "theme": "day",
+      "times": [
+        "08:30",
+        "09:30",
+        "11:00",
+        "12:30"
+      ],
+      "title": "武汉 · 半日过早记",
+      "url": "?route=wuhan-food&period=day"
+    },
+    {
+      "nodes": 4,
+      "stays": 2,
+      "theme": "night",
+      "times": [
+        "18:00",
+        "19:00",
+        "20:00",
+        "21:30"
+      ],
+      "title": "武汉 · 入夜寻味",
+      "url": "?route=wuhan-food&period=night"
+    },
+    {
+      "nodes": 6,
+      "stays": 2,
+      "theme": "day",
+      "times": [
+        "08:30",
+        "10:00",
+        "12:00",
+        "14:00",
+        "16:30",
+        "18:00"
+      ],
+      "title": "武汉美食探索",
+      "url": "?route=wuhan-food&period=full"
+    }
+  ],
+  "responsive": [
+    {
+      "broken": [],
+      "client": 1903,
+      "height": 1080,
+      "overflow": false,
+      "page": "/index.html",
+      "period": "day",
+      "scroll": 1903,
+      "width": 1920
+    },
+    {
+      "broken": [],
+      "client": 1903,
+      "height": 1080,
+      "overflow": false,
+      "page": "/choose.html",
+      "period": "day",
+      "scroll": 1903,
+      "width": 1920
+    },
+    {
+      "broken": [],
+      "client": 1903,
+      "height": 1080,
+      "overflow": false,
+      "page": "/routes.html",
+      "period": "day",
+      "scroll": 1903,
+      "width": 1920
+    },
+    {
+      "broken": [],
+      "client": 1903,
+      "height": 1080,
+      "overflow": false,
+      "page": "/detail.html",
+      "period": "day",
+      "scroll": 1903,
+      "width": 1920
+    },
+    {
+      "broken": [],
+      "client": 1903,
+      "height": 1080,
+      "overflow": false,
+      "page": "/finish.html",
+      "period": "day",
+      "scroll": 1903,
+      "width": 1920
+    },
+    {
+      "broken": [],
+      "client": 1903,
+      "height": 1080,
+      "overflow": false,
+      "page": "/index.html",
+      "period": "night",
+      "scroll": 1903,
+      "width": 1920
+    },
+    {
+      "broken": [],
+      "client": 1903,
+      "height": 1080,
+      "overflow": false,
+      "page": "/choose.html",
+      "period": "night",
+      "scroll": 1903,
+      "width": 1920
+    },
+    {
+      "broken": [],
+      "client": 1903,
+      "height": 1080,
+      "overflow": false,
+      "page": "/routes.html",
+      "period": "night",
+      "scroll": 1903,
+      "width": 1920
+    },
+    {
+      "broken": [],
+      "client": 1903,
+      "height": 1080,
+      "overflow": false,
+      "page": "/detail.html",
+      "period": "night",
+      "scroll": 1903,
+      "width": 1920
+    },
+    {
+      "broken": [],
+      "client": 1903,
+      "height": 1080,
+      "overflow": false,
+      "page": "/finish.html",
+      "period": "night",
+      "scroll": 1903,
+      "width": 1920
+    },
+    {
+      "broken": [],
+      "client": 1423,
+      "height": 900,
+      "overflow": false,
+      "page": "/index.html",
+      "period": "day",
+      "scroll": 1423,
+      "width": 1440
+    },
+    {
+      "broken": [],
+      "client": 1423,
+      "height": 900,
+      "overflow": false,
+      "page": "/choose.html",
+      "period": "day",
+      "scroll": 1423,
+      "width": 1440
+    },
+    {
+      "broken": [],
+      "client": 1423,
+      "height": 900,
+      "overflow": false,
+      "page": "/routes.html",
+      "period": "day",
+      "scroll": 1423,
+      "width": 1440
+    },
+    {
+      "broken": [],
+      "client": 1423,
+      "height": 900,
+      "overflow": false,
+      "page": "/detail.html",
+      "period": "day",
+      "scroll": 1423,
+      "width": 1440
+    },
+    {
+      "broken": [],
+      "client": 1423,
+      "height": 900,
+      "overflow": false,
+      "page": "/finish.html",
+      "period": "day",
+      "scroll": 1423,
+      "width": 1440
+    },
+    {
+      "broken": [],
+      "client": 1423,
+      "height": 900,
+      "overflow": false,
+      "page": "/index.html",
+      "period": "night",
+      "scroll": 1423,
+      "width": 1440
+    },
+    {
+      "broken": [],
+      "client": 1423,
+      "height": 900,
+      "overflow": false,
+      "page": "/choose.html",
+      "period": "night",
+      "scroll": 1423,
+      "width": 1440
+    },
+    {
+      "broken": [],
+      "client": 1423,
+      "height": 900,
+      "overflow": false,
+      "page": "/routes.html",
+      "period": "night",
+      "scroll": 1423,
+      "width": 1440
+    },
+    {
+      "broken": [],
+      "client": 1423,
+      "height": 900,
+      "overflow": false,
+      "page": "/detail.html",
+      "period": "night",
+      "scroll": 1423,
+      "width": 1440
+    },
+    {
+      "broken": [],
+      "client": 1423,
+      "height": 900,
+      "overflow": false,
+      "page": "/finish.html",
+      "period": "night",
+      "scroll": 1423,
+      "width": 1440
+    },
+    {
+      "broken": [],
+      "client": 1349,
+      "height": 768,
+      "overflow": false,
+      "page": "/index.html",
+      "period": "day",
+      "scroll": 1349,
+      "width": 1366
+    },
+    {
+      "broken": [],
+      "client": 1349,
+      "height": 768,
+      "overflow": false,
+      "page": "/choose.html",
+      "period": "day",
+      "scroll": 1349,
+      "width": 1366
+    },
+    {
+      "broken": [],
+      "client": 1349,
+      "height": 768,
+      "overflow": false,
+      "page": "/routes.html",
+      "period": "day",
+      "scroll": 1349,
+      "width": 1366
+    },
+    {
+      "broken": [],
+      "client": 1349,
+      "height": 768,
+      "overflow": false,
+      "page": "/detail.html",
+      "period": "day",
+      "scroll": 1349,
+      "width": 1366
+    },
+    {
+      "broken": [],
+      "client": 1349,
+      "height": 768,
+      "overflow": false,
+      "page": "/finish.html",
+      "period": "day",
+      "scroll": 1349,
+      "width": 1366
+    },
+    {
+      "broken": [],
+      "client": 1349,
+      "height": 768,
+      "overflow": false,
+      "page": "/index.html",
+      "period": "night",
+      "scroll": 1349,
+      "width": 1366
+    },
+    {
+      "broken": [],
+      "client": 1349,
+      "height": 768,
+      "overflow": false,
+      "page": "/choose.html",
+      "period": "night",
+      "scroll": 1349,
+      "width": 1366
+    },
+    {
+      "broken": [],
+      "client": 1349,
+      "height": 768,
+      "overflow": false,
+      "page": "/routes.html",
+      "period": "night",
+      "scroll": 1349,
+      "width": 1366
+    },
+    {
+      "broken": [],
+      "client": 1349,
+      "height": 768,
+      "overflow": false,
+      "page": "/detail.html",
+      "period": "night",
+      "scroll": 1349,
+      "width": 1366
+    },
+    {
+      "broken": [],
+      "client": 1349,
+      "height": 768,
+      "overflow": false,
+      "page": "/finish.html",
+      "period": "night",
+      "scroll": 1349,
+      "width": 1366
+    },
+    {
+      "broken": [],
+      "client": 373,
+      "height": 840,
+      "overflow": false,
+      "page": "/index.html",
+      "period": "day",
+      "scroll": 373,
+      "width": 390
+    },
+    {
+      "broken": [],
+      "client": 373,
+      "height": 840,
+      "overflow": false,
+      "page": "/choose.html",
+      "period": "day",
+      "scroll": 373,
+      "width": 390
+    },
+    {
+      "broken": [],
+      "client": 373,
+      "height": 840,
+      "overflow": false,
+      "page": "/routes.html",
+      "period": "day",
+      "scroll": 373,
+      "width": 390
+    },
+    {
+      "broken": [],
+      "client": 373,
+      "height": 840,
+      "overflow": false,
+      "page": "/detail.html",
+      "period": "day",
+      "scroll": 373,
+      "width": 390
+    },
+    {
+      "broken": [],
+      "client": 373,
+      "height": 840,
+      "overflow": false,
+      "page": "/finish.html",
+      "period": "day",
+      "scroll": 373,
+      "width": 390
+    },
+    {
+      "broken": [],
+      "client": 373,
+      "height": 840,
+      "overflow": false,
+      "page": "/index.html",
+      "period": "night",
+      "scroll": 373,
+      "width": 390
+    },
+    {
+      "broken": [],
+      "client": 373,
+      "height": 840,
+      "overflow": false,
+      "page": "/choose.html",
+      "period": "night",
+      "scroll": 373,
+      "width": 390
+    },
+    {
+      "broken": [],
+      "client": 373,
+      "height": 840,
+      "overflow": false,
+      "page": "/routes.html",
+      "period": "night",
+      "scroll": 373,
+      "width": 390
+    },
+    {
+      "broken": [],
+      "client": 373,
+      "height": 840,
+      "overflow": false,
+      "page": "/detail.html",
+      "period": "night",
+      "scroll": 373,
+      "width": 390
+    },
+    {
+      "broken": [],
+      "client": 373,
+      "height": 840,
+      "overflow": false,
+      "page": "/finish.html",
+      "period": "night",
+      "scroll": 373,
+      "width": 390
+    },
+    {
+      "broken": [],
+      "client": 343,
+      "height": 800,
+      "overflow": false,
+      "page": "/index.html",
+      "period": "day",
+      "scroll": 343,
+      "width": 360
+    },
+    {
+      "broken": [],
+      "client": 343,
+      "height": 800,
+      "overflow": false,
+      "page": "/choose.html",
+      "period": "day",
+      "scroll": 343,
+      "width": 360
+    },
+    {
+      "broken": [],
+      "client": 343,
+      "height": 800,
+      "overflow": false,
+      "page": "/routes.html",
+      "period": "day",
+      "scroll": 343,
+      "width": 360
+    },
+    {
+      "broken": [],
+      "client": 343,
+      "height": 800,
+      "overflow": false,
+      "page": "/detail.html",
+      "period": "day",
+      "scroll": 343,
+      "width": 360
+    },
+    {
+      "broken": [],
+      "client": 343,
+      "height": 800,
+      "overflow": false,
+      "page": "/finish.html",
+      "period": "day",
+      "scroll": 343,
+      "width": 360
+    },
+    {
+      "broken": [],
+      "client": 343,
+      "height": 800,
+      "overflow": false,
+      "page": "/index.html",
+      "period": "night",
+      "scroll": 343,
+      "width": 360
+    },
+    {
+      "broken": [],
+      "client": 343,
+      "height": 800,
+      "overflow": false,
+      "page": "/choose.html",
+      "period": "night",
+      "scroll": 343,
+      "width": 360
+    },
+    {
+      "broken": [],
+      "client": 343,
+      "height": 800,
+      "overflow": false,
+      "page": "/routes.html",
+      "period": "night",
+      "scroll": 343,
+      "width": 360
+    },
+    {
+      "broken": [],
+      "client": 343,
+      "height": 800,
+      "overflow": false,
+      "page": "/detail.html",
+      "period": "night",
+      "scroll": 343,
+      "width": 360
+    },
+    {
+      "broken": [],
+      "client": 343,
+      "height": 800,
+      "overflow": false,
+      "page": "/finish.html",
+      "period": "night",
+      "scroll": 343,
+      "width": 360
+    },
+    {
+      "broken": [],
+      "client": 303,
+      "height": 800,
+      "overflow": false,
+      "page": "/index.html",
+      "period": "day",
+      "scroll": 303,
+      "width": 320
+    },
+    {
+      "broken": [],
+      "client": 303,
+      "height": 800,
+      "overflow": false,
+      "page": "/choose.html",
+      "period": "day",
+      "scroll": 303,
+      "width": 320
+    },
+    {
+      "broken": [],
+      "client": 303,
+      "height": 800,
+      "overflow": false,
+      "page": "/routes.html",
+      "period": "day",
+      "scroll": 303,
+      "width": 320
+    },
+    {
+      "broken": [],
+      "client": 303,
+      "height": 800,
+      "overflow": false,
+      "page": "/detail.html",
+      "period": "day",
+      "scroll": 303,
+      "width": 320
+    },
+    {
+      "broken": [],
+      "client": 303,
+      "height": 800,
+      "overflow": false,
+      "page": "/finish.html",
+      "period": "day",
+      "scroll": 303,
+      "width": 320
+    },
+    {
+      "broken": [],
+      "client": 303,
+      "height": 800,
+      "overflow": false,
+      "page": "/index.html",
+      "period": "night",
+      "scroll": 303,
+      "width": 320
+    },
+    {
+      "broken": [],
+      "client": 303,
+      "height": 800,
+      "overflow": false,
+      "page": "/choose.html",
+      "period": "night",
+      "scroll": 303,
+      "width": 320
+    },
+    {
+      "broken": [],
+      "client": 303,
+      "height": 800,
+      "overflow": false,
+      "page": "/routes.html",
+      "period": "night",
+      "scroll": 303,
+      "width": 320
+    },
+    {
+      "broken": [],
+      "client": 303,
+      "height": 800,
+      "overflow": false,
+      "page": "/detail.html",
+      "period": "night",
+      "scroll": 303,
+      "width": 320
+    },
+    {
+      "broken": [],
+      "client": 303,
+      "height": 800,
+      "overflow": false,
+      "page": "/finish.html",
+      "period": "night",
+      "scroll": 303,
+      "width": 320
+    }
+  ],
+  "compatibility": [
+    {
+      "nodes": 4,
+      "period": "day",
+      "title": "江汉路 · 街角半日",
+      "url": "?route=jianghan&duration=half"
+    },
+    {
+      "nodes": 6,
+      "period": "full",
+      "title": "江汉路城市漫游",
+      "url": "?route=jianghan&duration=day"
+    },
+    {
+      "nodes": 6,
+      "period": "full",
+      "title": "东湖自然治愈之旅",
+      "url": "?route=bad&period=bad"
+    },
+    {
+      "nodes": 0,
+      "period": "full",
+      "title": "挑一段时光，遇见城市的另一面。",
+      "url": "?style=bad&period=bad"
+    },
+    {
+      "firstRoute": "武汉 · 入夜寻味",
+      "nodes": 0,
+      "period": "night",
+      "title": "城市亮起灯，你的夜晚才刚开始。",
+      "url": "?period=night&style=food"
+    }
+  ],
+  "console": [],
+  "limits": [
+    "Screenshots use the browser panel viewport; six specified viewports verified through DOM measurements",
+    "file protocol not allowed by browser tool; static review only",
+    "reduced motion reviewed statically; OS preference unchanged"
+  ]
+}

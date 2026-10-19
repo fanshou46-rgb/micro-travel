@@ -20,7 +20,7 @@ for (const route of data.routes) {
     assert.ok(stop[1] && stop[2] && stop[3] && stop[4], '时间节点内容不完整');
   }
 }
-for (const file of ['js/main.js', 'js/data.js', 'tools/serve.js']) {
+for (const file of ['js/main.js', 'js/data.js', 'js/experience.js', 'tools/serve.js']) {
   new vm.Script(read(file), { filename: file });
 }
 const pages = ['index.html', 'choose.html', 'routes.html', 'detail.html', 'finish.html'];
@@ -32,11 +32,12 @@ for (const file of [...pages, 'js/main.js']) {
     assert.ok(fs.existsSync(path.join(root, target)), `${file} 引用了不存在的文件：${target}`);
   }
 }
-for (const name of ['hero', 'forest', 'lake', 'city', 'food']) {
+for (const name of ['hero', 'forest', 'lake', 'city', 'food', 'night', 'stay-room', 'stay-house']) {
   const bytes = fs.readFileSync(path.join(root, 'assets/images', `${name}.jpg`));
   assert.ok(bytes.length > 10000 && bytes[0] === 0xff && bytes[1] === 0xd8, `${name} 不是有效 JPEG 文件`);
 }
 assert.ok(read('css/style.css').includes('prefers-reduced-motion'));
 assert.ok(read('css/style.css').includes(':focus-visible'));
 assert.ok(!read('js/main.js').includes('fetch('), '页面不应依赖网络数据加载');
-console.log(`PASS · DAYTRIP v${data.version} · 五个页面、三套行程、本地引用、摄影素材与脚本语法检查通过。`);
+require('./check-experience.js');
+console.log(`PASS · 拾光微旅 v${data.version} · 五个页面、本地引用、八张摄影与脚本语法检查通过。`);
