@@ -24,7 +24,7 @@ ASSETS = {
 def download(item):
     name, url = item
     url = quote(url, safe=':/?=&%')
-    headers = {'User-Agent': 'DaytripCoursePrototype/1.2 (educational static site)'}
+    headers = {'User-Agent': 'DaytripCoursePrototype/1.3 (educational static site)'}
     if 'commons.wikimedia' in url:
         with urlopen(Request(url, headers=headers), timeout=45) as response:
             page = response.read().decode('utf-8')

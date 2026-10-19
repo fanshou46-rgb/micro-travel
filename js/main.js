@@ -7,6 +7,20 @@
   const params = new URLSearchParams(location.search);
   const page = document.body.dataset.page;
   let period = experience.normalizePeriod(params);
+  // 外观与旅行时段分开：手动切换只改皮肤，明确重选时段后恢复自动联动。
+  const appearanceKey = "daytrip.appearance.v1";
+  let appearanceOverride = null;
+  try {
+    const saved = localStorage.getItem(appearanceKey);
+    if (saved === "day" || saved === "night") appearanceOverride = saved;
+  } catch { /* 存储被禁用时，当前页面仍可切换。 */ }
+  function rememberAppearance(value) {
+    appearanceOverride = value;
+    try {
+      if (value) localStorage.setItem(appearanceKey, value);
+      else localStorage.removeItem(appearanceKey);
+    } catch { /* 不阻断界面操作。 */ }
+  }
   const style = Object.hasOwn(themes, params.get("style"))
     ? params.get("style")
     : "nature";
@@ -64,13 +78,18 @@
     `<a data-carry-period href="${link(file)}" ${extra}>${text}</a>`;
 
   function applyAppearance() {
-    document.body.dataset.theme = period === "night" ? "night" : "day";
+    const theme = appearanceOverride || (period === "night" ? "night" : "day");
+    const night = theme === "night";
+    document.body.dataset.theme = theme;
     document.body.dataset.period = period;
     document.querySelector('meta[name="theme-color"]').content =
-      period === "night" ? "#101d2d" : "#287d69";
-    const status = document.querySelector(".appearance-label");
-    if (status)
-      status.innerHTML = `${icon(period === "night" ? "moon" : "sun")} ${period === "night" ? "夜色模式" : "日光模式"}`;
+      night ? "#101d2d" : "#287d69";
+    const toggle = document.querySelector(".appearance-toggle");
+    if (toggle) {
+      toggle.setAttribute("aria-checked", String(night));
+      toggle.title = night ? "切换到日光模式" : "切换到夜色模式";
+      toggle.innerHTML = `${icon(night ? "moon" : "sun")}<span>${night ? "夜色模式" : "日光模式"}</span><i class="appearance-track" aria-hidden="true"></i>`;
+    }
     document.querySelectorAll("[data-carry-period]").forEach((a) => {
       const url = new URL(a.href);
       url.searchParams.set("period", period);
@@ -81,10 +100,19 @@
     });
   }
   document.getElementById("site-header").innerHTML =
-    `<div class="nav-wrap"><a data-carry-period class="brand" href="${link("index.html")}" aria-label="拾光微旅 首页">${logo}</a><button class="menu-toggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="navigation">${icon("menu")}</button><nav id="navigation" aria-label="主导航">${carry("index.html", "首页", page === "home" ? 'aria-current="page"' : "")}${carry("routes.html", "探索路线", ["routes", "detail"].includes(page) ? 'aria-current="page"' : "")}<a data-carry-period href="${link("index.html")}#rankings">城市榜单</a><a data-carry-period href="${link("index.html")}#about">关于我们</a><span class="appearance-label"></span>${carry("choose.html", `开始微旅 ${arrow}`, 'class="btn nav-cta"')}</nav></div>`;
+    `<div class="nav-wrap"><a data-carry-period class="brand" href="${link("index.html")}" aria-label="拾光微旅 首页">${logo}</a><nav id="navigation" aria-label="主导航">${carry("index.html", "首页", page === "home" ? 'aria-current="page"' : "")}${carry("routes.html", "探索路线", ["routes", "detail"].includes(page) ? 'aria-current="page"' : "")}<a data-carry-period href="${link("index.html")}#rankings">城市榜单</a><a data-carry-period href="${link("index.html")}#about">关于我们</a>${carry("choose.html", `开始微旅 ${arrow}`, 'class="btn nav-cta"')}</nav><div class="header-controls"><button type="button" class="appearance-toggle" role="switch" aria-label="夜色模式" aria-checked="false"></button><button class="menu-toggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="navigation">${icon("menu")}</button></div></div>`;
   document.getElementById("site-footer").innerHTML =
     `<div class="footer-main wrap"><div><a data-carry-period class="brand" href="${link("index.html")}">${logo}</a><p>一座城，日夜都有新发现。</p></div><span class="footer-script">One city.<br>Two beautiful sides.</span><div class="footer-links">${carry("routes.html", `探索路线 ${arrow}`)}<a data-carry-period href="${link("index.html")}#rankings">城市榜单 ${arrow}</a><a href="assets/CREDITS.md">摄影素材与授权 ${arrow}</a></div></div><div class="footer-bottom wrap"><span>© ${new Date().getFullYear()} DAYTRIP · 拾光微旅</span><span>大学生创新创业课程 · 静态 UI 演示 <span class="version">v${data.version}</span></span><span>DAYLIGHT & AFTER DARK ${icon("sun")}</span></div>`;
   applyAppearance();
+  document.querySelector(".appearance-toggle").addEventListener("click", () => {
+    rememberAppearance(document.body.dataset.theme === "night" ? "day" : "night");
+    applyAppearance();
+  });
+  document.addEventListener("click", (event) => {
+    if (event.target.closest(".period-links a, .story-slide .btn, .finish-actions .btn:not(.btn-outline)")) {
+      rememberAppearance(null);
+    }
+  });
 
   function steps(current) {
     return `<div class="progress-steps" aria-label="旅行规划进度">${["选择偏好", "发现路线", "收藏微旅"].map((text, i) => `<span class="${i + 1 <= current ? "active" : ""}" ${i + 1 === current ? 'aria-current="step"' : ""}><b>${i + 1 < current ? icon("check") : "0" + (i + 1)}</b>${text}</span>`).join("<i></i>")}</div>`;
@@ -352,6 +380,7 @@
     document.querySelectorAll('[name="period"]').forEach((input) =>
       input.addEventListener("change", () => {
         period = input.value;
+        rememberAppearance(null);
         applyAppearance();
       }),
     );

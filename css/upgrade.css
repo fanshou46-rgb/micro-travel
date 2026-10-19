@@ -43,21 +43,17 @@ button {
 }
 nav {
   gap: 28px;
+  margin-left: auto;
+  margin-right: 18px;
 }
-.appearance-label {
-  display: inline-flex;
-  gap: 5px;
-  align-items: center;
-  color: var(--secondary);
-  font-size: 9px;
-  white-space: nowrap;
-  padding-left: 18px;
-  border-left: 1px solid var(--line);
-}
-.appearance-label .icon {
-  width: 14px;
-  height: 14px;
-}
+.header-controls { display:flex; align-items:center; gap:8px; flex-shrink:0; }
+.appearance-toggle { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:38px; padding:7px 10px; border:1px solid var(--border-soft); border-radius:24px; background:var(--surface-soft); color:var(--green); font-size:10px; white-space:nowrap; cursor:pointer; transition:background .2s,border-color .2s; }
+.appearance-toggle:hover { border-color:var(--green); background:var(--mint); }
+.appearance-toggle>.icon { width:16px; height:16px; }
+.appearance-track { position:relative; width:25px; height:14px; border-radius:12px; background:#a3b6a3; flex-shrink:0; }
+.appearance-track:after { content:""; position:absolute; width:10px; height:10px; left:2px; top:2px; background:#fff; border-radius:50%; transition:transform .2s; }
+.appearance-toggle[aria-checked="true"] .appearance-track { background:#b38e58; }
+.appearance-toggle[aria-checked="true"] .appearance-track:after { transform:translateX(11px); }
 nav .nav-cta {
   gap: 16px;
   margin-left: 0;
@@ -1200,9 +1196,6 @@ body[data-theme="night"] .how-step .step-number {
   nav {
     gap: 19px;
   }
-  .appearance-label {
-    display: none;
-  }
   .ranking-grid {
     gap: 22px;
     grid-template-columns: minmax(0, 1.6fr) minmax(260px, 1fr);
@@ -1271,12 +1264,18 @@ body[data-theme="night"] .how-step .step-number {
     font-size: 8px;
   }
 }
+@media (max-width: 1000px) {
+  .nav-wrap nav { display:none; position:absolute; top:96px; left:0; right:0; margin:0; padding:24px; background:var(--cream); box-shadow:0 15px 20px #193b3512; align-items:stretch; gap:0; }
+  .nav-wrap nav.open { display:flex; flex-direction:column; }
+  .nav-wrap nav>a:not(.btn) { padding:12px 0; font-size:14px; }
+  .nav-wrap nav>a[aria-current]:after { display:none; }
+  .nav-wrap nav .nav-cta { margin:15px 0 0; align-self:flex-start; }
+  .header-controls .menu-toggle { display:block; }
+}
 @media (max-width: 760px) {
+  .nav-wrap nav { top:79px; }
   nav {
     gap: 0;
-  }
-  .appearance-label {
-    display: none;
   }
   .hero-content {
     padding-top: 68px;
@@ -1654,6 +1653,8 @@ body[data-theme="night"] .how-step .step-number {
   }
 }
 @media (max-width: 380px) {
+  .appearance-toggle>span { display:none; }
+  .appearance-toggle { padding:8px; gap:6px; }
   .hero-seal {
     display: none;
   }
