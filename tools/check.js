@@ -13,6 +13,18 @@ assert.equal(data.routes.length, 3, '应有三条路线');
 assert.equal(new Set(data.routes.map(route => route.id)).size, 3, '路线 ID 必须不同');
 assert.equal(new Set(data.routes.map(route => JSON.stringify(route.stops))).size, 3, '三条路线不能共用同一套行程');
 for (const route of data.routes) {
+  const plan = data.planning[route.id];
+  assert.ok(plan?.audience && plan.access && plan.focus && plan.alternative, `${route.id} 缺少路线适配或调整提示`);
+  assert.equal(plan.checks.length, 2, '两项路线提醒加上交通和天气，共四项自查');
+  for (const period of Object.keys(data.periods)) {
+    const parts = plan.budgets[period];
+    assert.equal(parts.length, 3, '预算应含餐饮、市内交通与弹性体验');
+    for (const [low, high] of parts) {
+      assert.ok(Number.isFinite(low) && low >= 0 && Number.isFinite(high) && high >= low, `${route.id}:${period} 预算范围无效`);
+    }
+  }
+}
+for (const route of data.routes) {
   assert.equal(route.stops.length, 6, `${route.id} 应有六个完整时间节点`);
   assert.ok(data.themes[route.theme], `未知主题：${route.theme}`);
   for (const stop of route.stops) {

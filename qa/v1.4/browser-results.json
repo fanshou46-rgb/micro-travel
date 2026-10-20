@@ -1,0 +1,308 @@
+{
+  "date": "2026-10-20",
+  "checks": [
+    {
+      "width": 1440,
+      "theme": "day",
+      "file": "index.html",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "day",
+      "file": "choose.html",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "day",
+      "file": "routes.html",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "day",
+      "file": "detail.html",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "day",
+      "file": "finish.html",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "night",
+      "file": "index.html",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "night",
+      "file": "choose.html",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "night",
+      "file": "routes.html",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "night",
+      "file": "detail.html",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "night",
+      "file": "finish.html",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "theme": "day",
+      "file": "index.html",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "theme": "day",
+      "file": "choose.html",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "theme": "day",
+      "file": "routes.html",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "theme": "day",
+      "file": "detail.html",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "theme": "day",
+      "file": "finish.html",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "theme": "night",
+      "file": "index.html",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "theme": "night",
+      "file": "choose.html",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "theme": "night",
+      "file": "routes.html",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "theme": "night",
+      "file": "detail.html",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "theme": "night",
+      "file": "finish.html",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "day",
+      "file": "index.html",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "day",
+      "file": "choose.html",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "day",
+      "file": "routes.html",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "day",
+      "file": "detail.html",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "day",
+      "file": "finish.html",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "night",
+      "file": "index.html",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "night",
+      "file": "choose.html",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "night",
+      "file": "routes.html",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "night",
+      "file": "detail.html",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "night",
+      "file": "finish.html",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "day",
+      "file": "index.html",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "day",
+      "file": "choose.html",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "day",
+      "file": "routes.html",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "day",
+      "file": "detail.html",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "day",
+      "file": "finish.html",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "night",
+      "file": "index.html",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "night",
+      "file": "choose.html",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "night",
+      "file": "routes.html",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "night",
+      "file": "detail.html",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "night",
+      "file": "finish.html",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "theme": "day",
+      "file": "index.html",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "theme": "day",
+      "file": "choose.html",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "theme": "day",
+      "file": "routes.html",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "theme": "day",
+      "file": "detail.html",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "theme": "day",
+      "file": "finish.html",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "theme": "night",
+      "file": "index.html",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "theme": "night",
+      "file": "choose.html",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "theme": "night",
+      "file": "routes.html",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "theme": "night",
+      "file": "detail.html",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "theme": "night",
+      "file": "finish.html",
+      "overflow": false
+    }
+  ],
+  "combinations": 9,
+  "flow": "choose → routes → detail → stay → finish",
+  "errors": []
+}

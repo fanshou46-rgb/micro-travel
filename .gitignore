@@ -21,3 +21,15 @@ __pycache__/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# 本地课程报告和文档排版证据不进入公开网页仓库
+reports/
+qa/v1.4/source-render/
+qa/v1.4/report-render/
+qa/v1.4/standard-render/
+qa/v1.4/report-edit-log.json
+qa/v1.4/report-*.png
+qa/v1.4/deployment.json
+tools/render-report-pages.py
+tools/render-word.ps1
+tools/revise-course-report.py
