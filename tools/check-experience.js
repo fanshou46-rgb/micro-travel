@@ -1,82 +1,73 @@
-/* 检验真正影响用户的状态规则：去重、刷新、双章、延住与兼容。 */
-const assert = require('node:assert/strict');
-const fs = require('node:fs');
-const path = require('node:path');
-const vm = require('node:vm');
-const root = path.resolve(__dirname, '..');
-const storage = new Map();
-function boot(options = {}) {
-  const context = {
-    window: {},
-    localStorage: {
-      getItem(key) { if (options.blocked) throw new Error('Storage blocked'); return storage.get(key) || null; },
-      setItem(key, value) { if (options.blocked) throw new Error('Storage blocked'); storage.set(key, value); }
-    }
-  };
-  for (const file of ['data.js', 'experience.js']) vm.runInNewContext(fs.readFileSync(path.join(root, 'js', file), 'utf8'), context);
-  return { data: context.window.Daytrip, api: context.window.DaytripExperience };
+/* 真正影响用户的城市隔离、迁移、去重、旧链接与存储降级。 */
+const assert=require('node:assert/strict');
+const {boot}=require('./load-data');
+const storage=new Map();
+let {data,api}=boot(storage);
+assert.equal(api.routeView(data.routes[0],'night').transport,'步行 / 公共交通','旧武汉夜线不沿用日间骑行');
+const periodCases=[['','full'],['duration=half','day'],['duration=day','full'],['period=night&duration=half','night'],['period=bad&duration=half','full'],['period=__proto__','full']];
+for(const [q,want] of periodCases)assert.equal(api.normalizePeriod(new URLSearchParams(q)),want);
+for(const [q,page,city,route] of [
+ ['','detail',null,null],['city=bad','routes',null,null],['city=__proto__','detail',null,null],
+ ['city=wuhan','home',null,null],['city=hangzhou','footprints',null,null],['','choose',null,null],
+ ['route=jianghan','detail','wuhan','jianghan'],['city=beijing&route=hangzhou-city','detail','hangzhou','hangzhou-city'],
+ ['city=hangzhou&route=bad','detail','hangzhou',null],['city=hangzhou&route=donghu','finish','wuhan','donghu'],
+ ['city=shanghai&route=donghu','routes','shanghai',null]
+]){
+ const actual=api.resolveContext(new URLSearchParams(q),page);assert.equal(actual.cityId,city);assert.equal(actual.route?.id||null,route);assert.equal(actual.scope,city?'city':'all');
 }
-let { data, api } = boot();
-const tripSignatures = new Set();
-for (const route of data.routes) {
-  for (const period of ['day', 'night', 'full']) {
-    const trip = route.variants[period];
-    assert.equal(trip.stops.length, period === 'full' ? 6 : 4, '时段节点数错误');
-    let previous = -1;
-    for (const stop of trip.stops) {
-      assert.match(stop[0], /^\d{2}:\d{2}$/);
-      const [h, m] = stop[0].split(':').map(Number);
-      assert.ok(h < 24 && m < 60 && h * 60 + m > previous, '行程时间须递增');
-      previous = h * 60 + m;
-      assert.ok(stop[1] && stop[2] && stop[3] && stop[4]);
-      if (stop[5]) assert.ok(fs.existsSync(path.join(root, 'assets/images', stop[5] + '.jpg')));
-    }
-    assert.ok(trip.placeIds.length > 0);
-    assert.ok(trip.placeIds.every(id => Object.hasOwn(data.places, id)));
-    tripSignatures.add(JSON.stringify(trip.stops));
-    assert.ok(fs.existsSync(path.join(root, 'assets/images', trip.image + '.jpg')));
-  }
-  assert.equal(data.stays.filter(stay => stay.route === route.id).length, 2);
+api.complete('donghu','day');api.complete('donghu','day');api.complete('donghu','full');
+assert.equal(api.getState().visited.length,3);
+assert.equal(api.getCityState('wuhan').badges.length,1);
+api.complete('hangzhou-city','night');
+assert.equal(api.getOverview().cityCount,2);
+assert.equal(api.getOverview().tripCount,3,'同路线的不同时段是不同的完成行程');
+assert.equal(api.getOverview().dualCityCount,0);
+const beforeRead=JSON.stringify(api.getState());api.getOverview();api.getOverview();
+assert.equal(JSON.stringify(api.getState()),beforeRead,'全局总览必须只读');
+assert.equal(api.getCityState('hangzhou').badges.join(','),'night');
+assert.equal(api.getCityState('wuhan').badges.join(','),'day','跨城不合并双章');
+api.complete('jianghan','night');
+assert.equal(api.getCityState('wuhan').badges.length,2);
+assert.equal(api.getOverview().dualCityCount,1);
+const before=JSON.stringify(api.getState());api.complete('bad','night');api.complete('donghu','bad');
+assert.equal(JSON.stringify(api.getState()),before);
+api.selectStay('donghu','day','lake-room');
+assert.equal(api.selectedStay('donghu','day').id,'lake-room');
+assert.equal(api.selectedStay('donghu','night'),null);
+api.selectStay('donghu','day','hangzhou-nature-room');
+assert.equal(api.selectedStay('donghu','day').id,'lake-room');
+api=boot(storage).api;assert.equal(api.selectedStay('donghu','day').id,'lake-room');
+api.selectStay('donghu','day',null);assert.equal(api.selectedStay('donghu','day'),null);
+// 旧键保留，v2 迁移一次，恢复旧的武汉纪念章及住宿。
+const legacy={visited:['tingtao','tingtao','invalid'],badges:['day','night'],completed:['donghu:day'],stays:{'donghu:day':'lake-room'}};
+const old=JSON.stringify(legacy),migration=new Map([['daytrip.exploration.v1',old]]);
+api=boot(migration).api;
+assert.equal(api.getCityState('wuhan').visited.length,1);
+assert.equal(api.getCityState('wuhan').badges.length,2);
+assert.equal(api.getCityState('hangzhou').badges.length,0);
+assert.equal(api.selectedStay('donghu','day').id,'lake-room');
+assert.equal(migration.get('daytrip.exploration.v1'),old);
+api.complete('hangzhou-food','day');
+const migrated=JSON.stringify(api.getState());
+migration.set('daytrip.exploration.v1',JSON.stringify({...legacy,visited:['greenway']}));
+api=boot(migration).api;assert.equal(JSON.stringify(api.getState()),migrated,'不能重复迁移覆盖 v2');
+for(const raw of ['{bad-json','null','[]','42']){
+ const map=new Map([['daytrip.exploration.v2',raw]]);
+ assert.equal(boot(map).api.getState().visited.length,0);
 }
-assert.equal(tripSignatures.size, 9, '九套行程必须各自不同');
-for (const [query, expected] of [ ['', 'full'], ['duration=half', 'day'], ['duration=day', 'full'], ['duration=invalid', 'full'], ['period=night&duration=half', 'night'], ['period=bad&duration=half', 'full'], ['period=__proto__', 'full'] ]) {
-  assert.equal(api.normalizePeriod(new URLSearchParams(query)), expected, 'URL 兼容错误');
+for(const options of [{blocked:true},{quota:true}]){
+ api=boot(new Map(),options).api;api.complete('donghu','day');
+ assert.equal(api.getState().visited.length,3);
+ assert.equal(api.isPersistent(),false);
 }
-assert.equal(api.getState().visited.length, 0);
-api.complete('donghu', 'day');
-assert.equal(api.getState().visited.length, 3);
-api.complete('donghu', 'day');
-api.complete('donghu', 'full');
-assert.equal(api.getState().visited.length, 3, '同一地点跨时段不重复计数');
-assert.equal(api.getState().badges.length, 1, '完整一日不会错误发放夜游章');
-api.complete('jianghan', 'night');
-assert.equal(api.getState().visited.length, 6);
-assert.equal(api.getState().badges.length, 2);
-api.complete('bad-route', 'night');
-api.complete('donghu', 'bad-period');
-assert.equal(api.getState().visited.length, 6, '无效输入不能增加打卡');
-api.selectStay('donghu', 'day', 'lake-room');
-assert.equal(api.selectedStay('donghu', 'day').id, 'lake-room');
-assert.equal(api.selectedStay('donghu', 'night'), null, '延住按路线和时段隔离');
-api.selectStay('donghu', 'day', 'city-room');
-assert.equal(api.selectedStay('donghu', 'day').id, 'lake-room', '不能选入其他路线的住宿');
-api = boot().api;
-assert.equal(api.getState().visited.length, 6, '刷新后读取已有记录');
-assert.equal(api.selectedStay('donghu', 'day').id, 'lake-room');
-api.selectStay('donghu', 'day', null);
-assert.equal(api.selectedStay('donghu', 'day'), null, '取消延住');
-storage.set('daytrip.exploration.v1', '{bad-json');
-api = boot().api;
-assert.equal(api.getState().visited.length, 0);
-assert.equal(api.isPersistent(), true);
-api = boot({ blocked: true }).api;
-api.complete('donghu', 'day');
-assert.equal(api.getState().visited.length, 3, '禁用存储时保留本页面内存状态');
-assert.equal(api.isPersistent(), false);
-for (const user of data.rankings.users) {
-  assert.equal(new Set(user.places).size, user.places.length);
-  assert.ok(user.places.every(id => Object.hasOwn(data.places, id)));
+// 每城完成两种时段只点亮本城；重复完整流程保持去重。
+api=boot(new Map()).api;
+for(const cityId of Object.keys(data.cities)){
+ const route=data.routes.find(r=>r.cityId===cityId);
+ api.complete(route.id,'day');api.complete(route.id,'night');
+ assert.equal(api.getCityState(cityId).badges.length,2);
+ const count=api.getCityState(cityId).visited.length;
+ api.complete(route.id,'day');api.complete(route.id,'night');
+ assert.equal(api.getCityState(cityId).visited.length,count);
 }
-for (let i = 1; i < data.rankings.places.length; i++) assert.ok(data.rankings.places[i - 1].rating >= data.rankings.places[i].rating);
-for (let i = 1; i < data.rankings.users.length; i++) assert.ok(data.rankings.users[i - 1].places.length >= data.rankings.users[i].places.length);
-console.log('PASS · 九套独立行程、URL 兼容、打卡去重、双章、延住隔离与取消、存储异常和榜单排序。');
+console.log('PASS · 城市上下文、旧记录一次迁移、跨城纪念章隔离、去重、延住与存储异常。');

@@ -1,0 +1,109 @@
+/* 十二城发现体验，沿用既有日夜色板。 */
+[hidden] { display:none !important; }
+.city-picker { display:flex; align-items:center; gap:5px; color:var(--green); font-size:11px; flex-shrink:0; }
+.city-picker>span { display:flex; align-items:center; gap:3px; }
+.city-picker .icon { width:15px; height:15px; }
+select:focus-visible { outline:3px solid #d78a36; outline-offset:4px; }
+.city-picker select { min-height:38px; max-width:100%; border:1px solid var(--border-soft); border-radius:24px; background:var(--surface-soft); padding:7px 19px 7px 10px; color:var(--ink); font:inherit; cursor:pointer; }
+.city-discovery { padding-top:96px; padding-bottom:64px; scroll-margin-top:110px; }
+.city-discovery .section-heading h2 { font-size:36px; }
+.discovery-tools { display:flex; justify-content:space-between; align-items:end; gap:26px; padding:22px 0 4px; }
+.discovery-tools label,.route-search-label { display:grid; gap:9px; font-size:12px; color:var(--muted); }
+input[type=search] { width:100%; min-width:0; border:1px solid var(--border-soft); border-radius:12px; background:var(--white); color:var(--ink); font:inherit; font-size:14px; padding:14px 16px; min-height:48px; }
+.discovery-tools label { width:350px; max-width:100%; }
+.region-filters { display:flex; flex-wrap:wrap; gap:7px; padding-bottom:3px; }
+.region-filters .filter { padding:10px 14px; }
+.search-status,.route-result-count { margin:18px 0; color:var(--muted); font-size:12px; }
+.city-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:27px; }
+.city-card { background:var(--white); border:1px solid var(--line); border-radius:18px; overflow:hidden; transition:transform .2s,box-shadow .2s; min-width:0; }
+.city-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
+.city-card-photo { position:relative; height:215px; background:var(--mint); overflow:hidden; }
+.city-card-photo:after { content:''; position:absolute; inset:40% 0 0; background:linear-gradient(transparent,#102a26a8); pointer-events:none; }
+.city-card-photo img { width:100%; height:100%; object-fit:cover; transition:transform .4s; }
+.city-card:hover img { transform:scale(1.035); }
+.city-card-photo>span { position:absolute; bottom:18px; left:22px; z-index:1; font-size:10px; letter-spacing:2px; color:white; }
+.city-card-photo>b { position:absolute; top:16px; right:18px; background:#ffffffde; color:#224c40; padding:6px 9px; border-radius:50%; font-size:10px; }
+.city-card-copy { padding:23px; }
+.city-card-copy>small { color:var(--secondary); font-size:9px; letter-spacing:3px; }
+.city-card-copy h3 { display:flex; justify-content:space-between; align-items:center; font-size:27px; margin:8px 0 12px; }
+.city-card-copy h3>span { font:20px Georgia,serif; color:var(--green); }
+.city-card-copy p { font-size:13px; line-height:1.9; min-height:50px; color:var(--muted); margin:0 0 16px; }
+.city-card-copy>div { display:flex; flex-wrap:wrap; gap:6px; }
+.city-card-copy>div>span { font-size:10px; background:var(--surface-soft); color:var(--secondary); border-radius:4px; padding:5px 8px; }
+.city-card-action { display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--line); margin-top:20px; padding-top:16px; color:var(--green); font-size:11px; }
+.city-card-action .icon { width:18px; }
+.city-empty,.route-empty { text-align:center; padding:46px 20px; border:1px dashed var(--border-soft); border-radius:16px; background:var(--surface-soft); }
+.city-empty p,.route-empty p { color:var(--muted); margin:14px 0 23px; }
+.city-fieldset { border:0; padding:0; margin:0 0 45px; }
+.city-fieldset legend { font-size:20px; font-weight:600; margin-bottom:22px; }
+.city-fieldset legend>span { color:var(--green); font-size:12px; margin-right:13px; }
+.city-picker-large { font-size:16px; gap:14px; max-width:480px; padding:24px; border:1px solid var(--line); border-radius:14px; background:var(--white); }
+.city-picker-large select { flex:1; padding:12px; border-radius:9px; }
+.city-choice-intro { margin:13px 0 0; color:var(--muted); font-size:13px; }
+.city-banner { display:grid; grid-template-columns:38% 1fr; border-radius:18px; overflow:hidden; background:var(--surface-soft); margin:16px 0 35px; min-height:225px; }
+.city-banner>img { width:100%; height:100%; max-height:300px; object-fit:cover; }
+.city-banner>div { padding:36px; align-self:center; min-width:0; }
+.city-banner h2 { font-size:29px; margin:12px 0; }
+.city-banner p { font-size:13px; line-height:1.9; color:var(--muted); }
+.city-banner a { display:inline-block; margin-top:15px; font-size:11px; color:var(--green); }
+.route-search-label { max-width:500px; margin:28px 0; }
+.route-toolbar,.route-filters { flex-wrap:wrap; gap:12px; }
+.journey-summary { display:grid; grid-template-columns:1fr 1.5fr 1fr; gap:25px; border-block:1px solid var(--line); padding:25px 0; margin:6px 0 28px; }
+.journey-summary>div { display:grid; gap:8px; align-content:center; min-width:0; }
+.journey-summary small { display:block; color:var(--muted); font-size:11px; line-height:1.7; }
+.journey-summary b { font-size:17px; overflow-wrap:anywhere; }
+.journey-summary .journey-transfer { display:flex; align-items:center; gap:12px; font-size:12px; line-height:1.8; }
+.journey-transfer>.icon { flex-shrink:0; color:var(--green); }
+img { max-width:100%; }
+.image-unavailable { min-height:90px; background:linear-gradient(135deg,var(--mint),var(--surface-soft)); }
+.image-unavailable:before { content:'风景暂时藏起来了'; display:grid; place-items:center; height:100%; min-height:90px; color:var(--secondary); font-size:12px; }
+@media (max-width:1150px) {
+  nav { gap:15px; margin-right:10px; }
+  .city-picker:not(.city-picker-large)>span { display:none; }
+  .discovery-tools { align-items:start; flex-direction:column; gap:16px; }
+}
+@media (max-width:900px) {
+  .city-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+  .city-discovery .section-heading { align-items:start; gap:16px; }
+  .city-discovery .section-heading h2 { font-size:30px; }
+  .city-banner>div { padding:24px; }
+}
+@media (max-width:600px) {
+  .header-controls { gap:5px; }
+  .nav-wrap { gap:5px; }
+  .nav-wrap>.brand { flex-shrink:0; gap:6px; }
+  .nav-wrap .brand-words strong { font-size:15px; letter-spacing:1px; white-space:nowrap; }
+  .nav-wrap .brand-symbol { width:25px; height:30px; flex-shrink:0; }
+  .nav-wrap .brand-words small { font-size:5px; letter-spacing:3px; }
+  .city-picker select { padding:6px 1px 6px 6px; min-height:34px; font-size:11px; }
+  .city-discovery { padding-top:58px; padding-bottom:35px; }
+  .city-discovery .section-heading { display:block; }
+  .city-discovery .section-heading h2 { font-size:27px; line-height:1.5; }
+  .city-discovery .section-heading h2 .serif-accent { display:block; }
+  .city-discovery .section-heading p { margin-top:16px; }
+  .city-grid { grid-template-columns:1fr; gap:22px; }
+  .city-card-photo { height:215px; }
+  .city-card-copy p { min-height:0; }
+  .region-filters { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); width:100%; gap:5px; }
+  .region-filters .filter { padding:9px 12px; font-size:11px; }
+  .city-picker-large { padding:18px; font-size:15px; }
+  .city-picker-large>span { display:flex; }
+  .city-picker-large select { padding:12px; font-size:15px; }
+  .city-fieldset legend { font-size:17px; }
+  .city-banner { grid-template-columns:1fr; }
+  .city-banner>img { height:170px; }
+  .city-banner>div { padding:23px; }
+  .city-banner h2 { font-size:24px; }
+  .journey-summary { grid-template-columns:1fr; gap:18px; }
+  .journey-summary b { font-size:16px; }
+  .route-filters { width:100%; }
+  .route-empty h2 { font-size:20px; }
+}
+.source-notes { margin:22px 0; padding:20px 23px; border:1px solid var(--line); border-radius:12px; color:var(--muted); font-size:12px; }
+.source-notes summary { color:var(--green); cursor:pointer; }
+.source-notes p { margin:12px 0; }
+.source-notes a { display:inline-block; margin:4px 16px 4px 0; color:var(--green); text-decoration:underline; text-underline-offset:4px; }
+@media (prefers-reduced-motion:reduce) {
+  .city-card,.city-card-photo img { transition:none; }
+  .city-card:hover,.city-card:hover img { transform:none; }
+}

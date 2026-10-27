@@ -1,6 +1,6 @@
 /* 本地教学演示数据，不连接推荐、地图或天气服务。 */
 window.Daytrip = {
-  version: "1.4",
+  version: "1.6",
   themes: {
     nature: {
       name: "自然治愈",

@@ -24,9 +24,12 @@
   const style = Object.hasOwn(themes, params.get("style"))
     ? params.get("style")
     : "nature";
-  const baseRoute =
-    routes.find((r) => r.id === params.get("route")) || routes[0];
-  const route = experience.routeView(baseRoute, period);
+  const context = experience.resolveContext(params, page);
+  const { city, cityId, route: baseRoute } = context;
+  const stories = data.nationalStories;
+  const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const route = baseRoute ? experience.routeView(baseRoute, period) : null;
+  document.body.dataset.scope = context.scope;
   const motion = matchMedia("(prefers-reduced-motion: reduce)");
   const paths = {
     arrow: '<path d="M4 12h15m-6-6 6 6-6 6"/>',
@@ -64,14 +67,25 @@
   const arrow = icon("arrow");
   const logo = `<svg class="brand-symbol" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="27" cy="15" r="8" fill="#E5AE6F"/><path d="M7 29c9-17 18-17 29 0M6 35c10-10 21-10 35-3M12 41c8-6 16-6 25-4" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg><span class="brand-words"><strong>拾光微旅<span class="brand-dot">.</span></strong><small>DAYTRIP</small></span>`;
   const image = (name, alt, extra = "") =>
-    `<img src="assets/images/${name}.jpg" alt="${alt}" ${extra}>`;
+    `<img src="assets/images/${name}.jpg" alt="${alt}" width="1440" height="960" decoding="async" ${extra || 'loading="lazy"'}>`;
   const tag = (key) =>
     `<span class="tag ${themes[key].color}">${icon(themes[key].icon)}${themes[key].name}</span>`;
   const demo = '<span class="demo-pill">教学演示</span>';
-  const link = (file, extra = {}, targetPeriod = period) =>
-    `${file}?${new URLSearchParams({ period: targetPeriod, ...extra })}`;
+  const link = (file, extra = {}, targetPeriod = period) => {
+    const values = { period: targetPeriod, style };
+    if (cityId && !['index.html','footprints.html'].includes(file)) values.city = cityId;
+    Object.assign(values, extra);
+    if (file === 'index.html') { delete values.city; delete values.route; }
+    for (const key of Object.keys(values)) if (values[key] === null || values[key] === undefined || values[key] === '') delete values[key];
+    return `${file}?${new URLSearchParams(values)}`;
+  };
+  function routeListURL() {
+    const back = params.get('returnTo');
+    if (back && /^routes\.html(?:\?|$)/.test(back)) return `routes.html?${new URLSearchParams(back.split('?')[1] || '')}`;
+    return link('routes.html', {city:route?.cityId,style:route?.theme||style});
+  }
   const detailURL = (item) =>
-    link("detail.html", { route: item.id, style: item.theme });
+    link("detail.html", { city: item.cityId, route: item.id, style: item.theme });
   const periodBadge = () =>
     `<span class="period-badge">${icon(periods[period].icon)} ${periods[period].name}</span>`;
   const carry = (file, text, extra = "") =>
@@ -100,9 +114,9 @@
     });
   }
   document.getElementById("site-header").innerHTML =
-    `<div class="nav-wrap"><a data-carry-period class="brand" href="${link("index.html")}" aria-label="拾光微旅 首页">${logo}</a><nav id="navigation" aria-label="主导航">${carry("index.html", "首页", page === "home" ? 'aria-current="page"' : "")}${carry("routes.html", "探索路线", ["routes", "detail"].includes(page) ? 'aria-current="page"' : "")}<a data-carry-period href="${link("index.html")}#rankings">城市榜单</a><a data-carry-period href="${link("index.html")}#about">关于我们</a>${carry("choose.html", `开始微旅 ${arrow}`, 'class="btn nav-cta"')}</nav><div class="header-controls"><button type="button" class="appearance-toggle" role="switch" aria-label="夜色模式" aria-checked="false"></button><button class="menu-toggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="navigation">${icon("menu")}</button></div></div>`;
+    `<div class="nav-wrap"><a data-carry-period class="brand" href="${link("index.html")}" aria-label="拾光微旅 首页">${logo}</a><nav id="navigation" aria-label="主导航">${carry("index.html", "首页", page === "home" ? 'aria-current="page"' : "")}${carry("routes.html", "探索路线", ["routes", "detail"].includes(page) ? 'aria-current="page"' : "")}${carry("footprints.html", "我的足迹", page === "footprints" ? 'aria-current="page"' : "")}<a data-carry-period href="${link("index.html")}#about">关于我们</a>${carry("choose.html", `开始微旅 ${arrow}`, 'class="btn nav-cta"')}</nav><div class="header-controls">${cityPicker("nav-city")}<button type="button" class="appearance-toggle" role="switch" aria-label="夜色模式" aria-checked="false"></button><button class="menu-toggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="navigation">${icon("menu")}</button></div></div>`;
   document.getElementById("site-footer").innerHTML =
-    `<div class="footer-main wrap"><div><a data-carry-period class="brand" href="${link("index.html")}">${logo}</a><p>一座城，日夜都有新发现。</p></div><span class="footer-script">One city.<br>Two beautiful sides.</span><div class="footer-links">${carry("routes.html", `探索路线 ${arrow}`)}<a data-carry-period href="${link("index.html")}#rankings">城市榜单 ${arrow}</a><a href="assets/CREDITS.md">摄影素材与授权 ${arrow}</a></div></div><div class="footer-bottom wrap"><span>© ${new Date().getFullYear()} DAYTRIP · 拾光微旅</span><span>大学生创新创业课程 · 静态 UI 演示 <span class="version">v${data.version}</span></span><span>DAYLIGHT & AFTER DARK ${icon("sun")}</span></div>`;
+    `<div class="footer-main wrap"><div><a data-carry-period class="brand" href="${link("index.html")}">${logo}</a><p>每座城，日夜都有新发现。</p></div><span class="footer-script">Every city.<br>New little stories.</span><div class="footer-links">${carry("routes.html", `探索路线 ${arrow}`)}${carry("footprints.html", `我的足迹 ${arrow}`)}<a href="assets/CREDITS.md">摄影素材与授权 ${arrow}</a></div></div><div class="footer-bottom wrap"><span>© ${new Date().getFullYear()} DAYTRIP · 拾光微旅</span><span>大学生创新创业课程 · 静态 UI 演示 <span class="version">v${data.version}</span></span><span>DAYLIGHT & AFTER DARK ${icon("sun")}</span></div>`;
   applyAppearance();
   document.querySelector(".appearance-toggle").addEventListener("click", () => {
     rememberAppearance(document.body.dataset.theme === "night" ? "day" : "night");
@@ -130,30 +144,59 @@
   function themeCards(choose = false) {
     return Object.entries(themes)
       .map(([key, theme], i) => {
-        const content = `<div class="theme-photo">${image(theme.image, `${theme.name}氛围摄影`)}<span class="photo-number">0${i + 1} /</span>${choose ? `<span class="selection-mark">${icon("check")}</span>` : `<span class="circle-link">${arrow}</span>`}</div><div class="theme-body"><span class="theme-english">${theme.english}</span><h3>${icon(theme.icon)}${theme.name}</h3><p>${choose ? theme.description : theme.short}</p>${choose ? "" : '<span class="theme-action">找到我的微旅灵感 <span>↗</span></span>'}</div>`;
+        const content = `<div class="theme-photo">${image((city || data.cities[["beijing","hangzhou","chengdu"][i]]).images[key], `${theme.name}氛围摄影`)}<span class="photo-number">0${i + 1} /</span>${choose ? `<span class="selection-mark">${icon("check")}</span>` : `<span class="circle-link">${arrow}</span>`}</div><div class="theme-body"><span class="theme-english">${theme.english}</span><h3>${icon(theme.icon)}${theme.name}</h3><p>${choose ? theme.description : theme.short}</p>${choose ? "" : '<span class="theme-action">找到我的微旅灵感 <span>↗</span></span>'}</div>`;
         return choose
           ? `<label class="theme-card choice-card"><input type="radio" name="style" value="${key}" ${key === style ? "checked" : ""}><span class="choice-content">${content}</span></label>`
           : `<a class="theme-card reveal" href="${link("choose.html", { style: key })}">${content}</a>`;
       })
       .join("");
   }
+  function cityPicker(id,form=false) {
+    return `<label class="city-picker ${form?'city-picker-large':''}" for="${id}"><span>${icon('pin')} 目的地</span><select id="${id}" ${form?'name="city" required':''} data-city-switch aria-label="选择目的地"><option value="" ${!cityId?'selected':''} ${form?'disabled':''}>${form?'请选择城市':'全部城市'}</option>${data.discoveryOrder.map(key=>data.cities[key]).map(c=>`<option value="${c.id}" ${c.id===cityId?'selected':''}>${c.name}</option>`).join('')}</select></label>`;
+  }
+  function cityDirectory() {
+    return `<section class="city-discovery wrap" id="cities"><div class="section-heading"><div><div class="eyebrow">TWELVE CITIES, COUNTLESS LITTLE MOMENTS</div><h2>下一站，<span class="serif-accent">想在哪座城慢下来？</span></h2></div><p>12 座城市 · 36 条主题路线 · 108 套时光安排<br>从熟悉的名字，走进真实的街巷。</p></div><div class="discovery-tools"><label for="city-search">搜索城市或景点<input id="city-search" type="search" placeholder="试试杭州、hangzhou 或西湖" autocomplete="off"></label><div class="region-filters" role="group" aria-label="按地区筛选">${['全部','华北','华东','华中','华南','西南','西北'].map((r,i)=>`<button type="button" data-region="${r}" class="filter ${i===0?'active':''}" aria-pressed="${i===0}">${r}</button>`).join('')}</div></div><p id="city-search-status" class="search-status" aria-live="polite">12 座城市，等你出发</p><div class="city-grid">${data.discoveryOrder.map(key=>data.cities[key]).map((c,i)=>`<a class="city-card" data-city-card="${c.id}" href="${link('choose.html',{city:c.id})}"><div class="city-card-photo">${image(c.images.city,`${c.name}城市实景`,'loading="lazy"')}<span>${c.region} · CHINA</span><b>${String(i+1).padStart(2,'0')}</b></div><div class="city-card-copy"><small>${c.english.toUpperCase()}</small><h3>${c.name}<span aria-hidden="true">↗</span></h3><p>${c.intro}</p><div>${c.tags.map(t=>`<span>${t}</span>`).join('')}</div><span class="city-card-action">三种主题，九段时光 ${arrow}</span></div></a>`).join('')}</div><div class="city-empty" hidden><h3>还没找到你想去的地方</h3><p>试试城市名、拼音，或清除地区筛选。</p><button class="btn btn-small" data-reset-cities>查看全部城市</button></div></section>`;
+  }
+  function setupCityDirectory() {
+    const input=document.getElementById('city-search');if(!input)return;
+    let region='全部';
+    function update(){
+      const q=input.value.trim().toLowerCase();let count=0;
+      document.querySelectorAll('[data-city-card]').forEach(card=>{
+        const c=data.cities[card.dataset.cityCard];
+        const ownRoutes=routes.filter(r=>r.cityId===c.id);
+        const cityMatch=[c.name,c.id,c.english,c.region].some(t=>t.toLowerCase().includes(q));
+        const matched=ownRoutes.find(r=>[r.name,...r.keywords,...Object.values(r.variants).map(v=>v.name),...Object.values(r.variants).flatMap(v=>v.stops.map(s=>s[4]))].some(t=>t.toLowerCase().includes(q)));
+        card.hidden=!(region==='全部'||region===c.region)||!(cityMatch||matched);
+        card.href=!cityMatch&&matched?link('routes.html',{city:c.id,style:matched.theme,q:input.value.trim()}):link('choose.html',{city:c.id});
+        if(!card.hidden)count++;
+      });
+      document.getElementById('city-search-status').textContent=`找到 ${count} 座城市${q?' · 点击卡片继续探索':''}`;
+      document.querySelector('.city-empty').hidden=count!==0;
+    }
+    input.addEventListener('input',update);
+    document.querySelectorAll('[data-region]').forEach(button=>button.addEventListener('click',()=>{
+      region=button.dataset.region;
+      document.querySelectorAll('[data-region]').forEach(b=>{b.classList.toggle('active',b===button);b.setAttribute('aria-pressed',String(b===button));});update();
+    }));
+    document.querySelector('[data-reset-cities]').addEventListener('click',()=>{input.value='';document.querySelector('[data-region="全部"]').click();input.focus();});
+  }
+  function cityBanner(){
+    return `<section class="city-banner">${image(city.images[period==='night'?'night':'city'],`${city.name}实景`)}<div><span class="eyebrow">${city.region} / ${city.english.toUpperCase()}</span><h2>${city.name}，慢慢喜欢。</h2><p>${city.intro}</p><a href="${link('index.html')}#cities">换一座城，看看新的风景 ↗</a></div></section>`;
+  }
+  function sourceNotes(){
+    return `<details class="source-notes"><summary>城市资料与摄影来源</summary><p>景点名称、片区背景核对：2026-10-27。行程是人工教学编排；开放、预约和交通请另查当天信息。</p>${city.sources.map(([name,url])=>`<a href="${url}" target="_blank" rel="noopener noreferrer">${name} ↗</a>`).join('')}<a href="assets/CREDITS.md">摄影作者与授权 ↗</a></details>`;
+  }
+  function journeySummary(){
+    return `<section class="journey-summary" aria-label="行程起止与交通"><div><small>从这里开始</small><b>${route.stops[0][4]}</b></div><div class="journey-transfer">${icon('map')}<span>${route.transport}<small>节点间移动已留在时间轴间隔内，请按实际交通调整</small></span></div><div><small>在这里收尾</small><b>${route.stops.at(-1)[4]}</b></div></section>`;
+  }
   function badgePair() {
-    const state = experience.getState();
+    const state = experience.getCityState(cityId);
     return `<div class="badge-pair" aria-label="我的日夜纪念章"><span class="collectible ${state.badges.includes("day") ? "earned" : ""}">${icon("sun")}<b>日光章</b><small>${state.badges.includes("day") ? "已点亮" : "等待出发"}</small></span><i>+</i><span class="collectible night ${state.badges.includes("night") ? "earned" : ""}">${icon("moon")}<b>夜游章</b><small>${state.badges.includes("night") ? "已点亮" : "等待出发"}</small></span></div>`;
   }
-  let rankingType = "places";
-  let rankingExpanded = false;
-  function rankingRows() {
-    const items = data.rankings[rankingType].slice(0, rankingExpanded ? 5 : 3);
-    return `<ol class="ranking-list">${items.map((item, i) => (rankingType === "places" ? `<li><a class="ranking-row" href="${detailURL(routes.find((r) => r.id === item.route))}"><span class="rank-number">0${i + 1}</span><span class="rank-photo">${image(item.image, `${item.name}摄影`)}</span><span class="rank-text"><b>${item.name}</b><small>${item.text}</small></span><span class="rank-value">${item.rating.toFixed(1)}<small>${item.reviews.toLocaleString()} 条示例评价</small></span>${arrow}</a></li>` : `<li><button class="ranking-row user-ranking" data-user="${data.rankings.users.indexOf(item)}"><span class="rank-number">0${i + 1}</span><span class="user-avatar avatar-${i}">${item.initials}</span><span class="rank-text"><b>${item.name}</b><small>${item.motto}</small></span><span class="rank-value">${item.places.length}<small>个不同地点 · 模拟用户</small></span>${arrow}</button></li>`)).join("")}</ol>`;
-  }
-  function rankings() {
-    const count = experience.getState().visited.length;
-    return `<section class="ranking-section wrap" id="rankings"><div class="section-heading"><div><div class="eyebrow">THE CITY, THROUGH OUR EYES</div><h2>大家的喜欢，<span class="serif-accent">也是出发的灵感。</span></h2></div><p>看看值得停留的地方，也看看认真探索的人。<br>榜单、评价和用户均为课堂演示内容。</p></div><div class="ranking-grid"><div class="ranking-board"><div class="ranking-tabs" role="tablist" aria-label="城市榜单"><button id="tab-places" role="tab" aria-selected="true" aria-controls="ranking-panel" data-ranking="places">${icon("heart")} 景区好评榜</button><button id="tab-users" role="tab" aria-selected="false" aria-controls="ranking-panel" tabindex="-1" data-ranking="users">${icon("trophy")} 用户探索者榜</button>${demo}</div><div id="ranking-panel" role="tabpanel" aria-labelledby="tab-places">${rankingRows()}</div><button class="ranking-expand" aria-expanded="false" aria-controls="ranking-panel">展开前五名 ${arrow}</button><p class="ranking-note">好评榜按示例评分排序；探索榜按不同地点数排序。合作展示不参与排名。</p></div><aside class="my-progress"><div class="eyebrow">MY LITTLE DISCOVERIES</div><h3>我的武汉探索手记</h3><div class="progress-count"><b>${count.toString().padStart(2, "0")}</b><span>/ 09 个不同地点</span></div><progress max="9" value="${count}" aria-label="我的不同地点探索进度"></progress>${badgePair()}<p>${experience.getState().badges.length === 2 ? "日夜双章已集齐，去纪念卡看看武汉的两面。" : "收集日光与夜色，拼成你的城市双面纪念卡。"}</p><button class="text-link" data-my-record>查看我的探索记录 ${arrow}</button><small>仅此浏览器的模拟记录 · 重复地点不累加</small></aside></div></section>`;
-  }
   function hero() {
-    const initial = period === "night" ? 2 : 0;
-    return `<section class="hero story-carousel" aria-label="微旅行灵感故事" aria-roledescription="轮播" data-slide="${initial}">${data.stories.map((story, i) => `<div class="story-slide ${i === initial ? "active" : ""}" data-story="${i}" aria-hidden="${i !== initial}" ${i !== initial ? "inert" : ""}><div class="hero-image">${image(story.image, `${periods[story.period].name}灵感摄影`, i === initial ? 'fetchpriority="high"' : 'loading="lazy"')}</div><div class="hero-shade"></div><div class="hero-content"><div class="eyebrow light"><span></span>${story.eyebrow}</div><h1>${story.title}<br><span>${story.accent}</span></h1><p>${story.text.replace("\n", "<br>")}</p><a class="btn btn-sand" href="${link("choose.html", {}, story.period)}">${story.button} ${arrow}</a><span class="hero-note">一座城，日夜都有新发现。</span></div></div>`).join("")}<div class="hero-seal"><span>A LITTLE ESCAPE</span>${icon(period === "night" ? "moon" : "sun")}<span>DAYLIGHT & DARK</span></div><div class="hero-bottom"><span class="story-caption">${icon("pin")} ${data.stories[initial].caption}</span><div class="carousel-controls"><span class="story-counter">0${initial + 1} <small>/ 03</small></span><button class="carousel-control" data-carousel="prev" aria-label="上一张故事">${icon("back")}</button><button class="carousel-control" data-carousel="pause" aria-label="暂停轮播" aria-pressed="false">${icon("pause")}</button><button class="carousel-control" data-carousel="next" aria-label="下一张故事">${arrow}</button></div></div><span class="sr-only story-status" aria-live="polite"></span></section>`;
+    const initial = period === "night" ? 2 : period === "full" ? 1 : 0;
+    return `<section class="hero story-carousel" aria-label="微旅行灵感故事" aria-roledescription="轮播" data-slide="${initial}">${stories.map((story, i) => `<div class="story-slide ${i === initial ? "active" : ""}" data-story="${i}" aria-hidden="${i !== initial}" ${i !== initial ? "inert" : ""}><div class="hero-image">${image(story.image, `${periods[story.period].name}灵感摄影`, i === initial ? 'fetchpriority="high"' : 'loading="lazy"')}</div><div class="hero-shade"></div><div class="hero-content"><div class="eyebrow light"><span></span>${story.eyebrow}</div><h1>${story.title}<br><span>${story.accent}</span></h1><p>${story.text.replace("\n", "<br>")}</p><a class="btn btn-sand" href="${link("choose.html", {city:story.cityId,style:story.style}, story.period)}">${story.button} ${arrow}</a><span class="hero-note">每座城，日夜都有新发现。</span></div></div>`).join("")}<div class="hero-seal"><span>A LITTLE ESCAPE</span>${icon(period === "night" ? "moon" : "sun")}<span>DAYLIGHT & DARK</span></div><div class="hero-bottom"><span class="story-caption">${icon("pin")} ${stories[initial].caption}</span><div class="carousel-controls"><span class="story-counter">0${initial + 1} <small>/ 03</small></span><button class="carousel-control" data-carousel="prev" aria-label="上一张故事">${icon("back")}</button><button class="carousel-control" data-carousel="pause" aria-label="暂停轮播" aria-pressed="false">${icon("pause")}</button><button class="carousel-control" data-carousel="next" aria-label="下一张故事">${arrow}</button></div></div><span class="sr-only story-status" aria-live="polite"></span></section>`;
   }
   function staySection() {
     return `<section class="stay-section" id="stays"><div class="section-heading"><div><div class="eyebrow">LET THE GOOD DAY LAST A LITTLE LONGER</div><h2>还没玩尽兴？<br><span class="serif-accent">不如多留一晚。</span></h2></div><p>给今晚一个舒服的落脚点，<br>也给明早，多一个期待。</p></div><div class="stay-grid">${data.stays
@@ -171,23 +214,31 @@
     const parts = data.planning[id].budgets[period];
     return { parts, low: parts.reduce((sum, x) => sum + x[0], 0), high: parts.reduce((sum, x) => sum + x[1], 0) };
   }
+  function periodPlanning(id) {
+    const plan = data.planning[id];
+    const view = experience.routeView(routes.find(r => r.id === id), period);
+    if (period !== 'night') return {...plan, access:view.transport};
+    return {...plan,access:view.transport,intensity:'公共街区分段慢走，按照明与体力缩短',focus:'当晚通行、营业与返程交通',checks:[`已核对${view.stops[0][4]}周边的当晚通行与营业情况`,'已确认夜线的具体地点，不按白天场馆开放推断夜间可进入'],alternative:`夜线从${view.stops[0][4]}独立开始。若遇关闭、降雨或照明不足，取消户外段，在附近营业休息点调整或直接返程。`};
+  }
   function planningCard(item) {
-    const plan = data.planning[item.id];
+    const plan = periodPlanning(item.id);
     const budget = planningBudget(item.id);
     return `<div class="planning-card"><div class="budget-line"><span>人均预算参考</span><strong>¥${budget.low}–${budget.high}<small> / 人</small></strong></div><p class="budget-kind">人工情景估算 · 不含住宿及往返出发地</p><dl><div><dt>${icon("heart")}适合</dt><dd>${plan.audience}</dd></div><div><dt>${icon("pin")}步调</dt><dd>${plan.intensity}</dd></div><div><dt>${icon("clock")}核对</dt><dd>${plan.focus}${period === "night" ? "、返程末班交通" : ""}</dd></div></dl></div>`;
   }
   function planningDetail() {
-    const plan = data.planning[route.id];
+    const plan = periodPlanning(route.id);
     const budget = planningBudget(route.id);
     const checks = [...plan.checks, period === "night" ? "已核对末班交通，并预留夜间返程时间" : "已预留到达起点和离开终点的时间", "已查看天气，并与同行者确认步行和休息安排"];
     return `<section class="planning-overview" aria-labelledby="planning-title"><div class="planning-heading"><div><div class="eyebrow">A LITTLE PLANNING, A BETTER DAY</div><h2 id="planning-title">出发之前，心里先有个底。</h2></div><a class="text-link" href="#departure-checklist">查看出发核对 ${arrow}</a></div><div class="planning-detail-grid"><div class="budget-breakdown"><span>这一程的预算参考</span><p class="budget-total">¥${budget.low}–${budget.high}<small> / 人</small></p><dl>${["餐饮", "市内交通", "弹性体验"].map((name, i) => `<div><dt>${name}</dt><dd>¥${budget.parts[i][0]}–${budget.parts[i][1]}</dd></div>`).join("")}</dl><p class="budget-kind">人工情景估算，不是商家报价；不含住宿、购物及往返出发地费用。实际消费按个人选择核实。</p></div><div class="journey-fit"><span class="eyebrow">FIND YOUR PACE</span><h3>这条路线，适合怎样的你？</h3><p>${plan.audience}。</p><ul><li>${icon("clock")} ${route.hours} · ${route.stops.length} 个时间节点</li><li>${icon("map")} ${plan.access}</li><li>${icon("leaf")} ${plan.intensity}</li></ul><p class="planning-boundary">时间轴为预设安排，请另留往返出发地时间。</p></div></div></section><section class="departure-checklist" id="departure-checklist" aria-labelledby="checklist-title"><div class="checklist-intro"><div class="eyebrow">BEFORE YOU GO</div><h2 id="checklist-title">少一点临时慌张。</h2><p>把预约、开放和返程，放在出发前。</p><output class="checklist-status" aria-live="polite">本页自查：0 / ${checks.length} 项已核对</output></div><div class="checklist-items">${checks.map((text) => `<label><input type="checkbox" data-departure-check><span>${text}</span></label>`).join("")}<p>勾选仅作本页自查，不代表预约成功或实时通行确认。</p></div><details class="plan-alternative"><summary>如果临时有变化，怎么调整？</summary><p>${plan.alternative}</p></details></section>`;
   }
+  const discovery = window.createDiscoveryUI({data,experience,params,city,cityId,period,style,icon,image,link,periodLinks,cityDirectory,planningCard,openDialog,watchImages,onPeriodChosen:()=>rememberAppearance(null)});
   const views = {
     home() {
-      return `${hero()}<div class="intro-bar wrap"><div class="intro-bar-title">一座城，<br><strong>两种美好。</strong></div><div>${icon("sun")}<span><b>日光里的小出走</b><small>半天或一天，按自己的节奏出发</small></span></div><div>${icon("moon")}<span><b>亮灯后的新发现</b><small>留一点夜晚，给风景和烟火气</small></span></div><a href="${link("choose.html")}">选择我的时光 ${arrow}</a></div><section class="planner-bridge wrap" aria-label="微旅规划亮点"><div><span class="eyebrow">LESS GUESSING, MORE EXPLORING</span><h2>喜欢这条路，也知道怎么出发。</h2></div><ol><li><b>01</b><span>两步选好<small>时段 × 兴趣，轻松开始</small></span></li><li><b>02</b><span>一眼对比<small>预算、步调与适合人群</small></span></li><li><b>03</b><span>出发核对<small>开放、预约与返程提醒</small></span></li></ol></section><section class="section wrap" id="discover"><div class="section-heading reveal"><div><div class="eyebrow">FIND YOUR KIND OF ESCAPE</div><h2>这一程，想遇见什么？</h2></div><p>选择心情，再选择时光。<br>同一座城市，总有另一面值得发现。</p></div><div class="theme-grid">${themeCards()}</div></section>${rankings()}<section class="how-section"><div class="wrap"><div class="section-heading"><div><div class="eyebrow">LESS PLANNING, MORE LIVING</div><h2>从出发，到舍不得结束。</h2></div><a class="text-link" href="${link("choose.html")}">开启我的微旅 ${arrow}</a></div><div class="how-grid"><div class="how-step reveal"><span class="step-number">01</span><div class="how-icon">${icon("heart")}</div><h3>跟随心情，挑一段时光</h3><p>日光里，或亮灯后，<br>选一种喜欢的方式认识城市。</p></div><div class="how-step reveal"><span class="step-number">02</span><div class="how-icon">${icon("map")}</div><h3>沿着喜欢，慢慢展开</h3><p>看行程、找灵感，<br>想多留一晚，就接住明早的期待。</p></div><div class="how-step reveal"><span class="step-number">03</span><div class="how-icon">${icon("sun")}</div><h3>收集日夜两枚纪念章</h3><p>不同的时光，不同的城市表情，<br>拼成一张自己的武汉微旅记忆。</p></div></div></div></section><section class="about-section wrap" id="about"><div class="about-photo reveal">${image("forest", "阳光穿过森林的氛围摄影", 'loading="lazy"')}<span class="photo-caption">GO SLOW. DISCOVER MORE.</span><div class="photo-label">生活需要一点<br><em>留白。</em></div></div><div class="about-copy reveal"><div class="eyebrow">THE DAYTRIP PHILOSOPHY</div><h2>旅行不必很远，<br>日夜都有<span class="serif-accent">新发现。</span></h2><p>我们相信，城市有不止一种表情。<br>白天的湖光，亮灯后的街巷，一份热乎的早餐，<br>都值得我们认真停留。</p><p>拾光微旅，让半天、一个夜晚或完整一日，<br>成为刚刚好的小出走。再把这份喜欢，<br>延伸到一晚小住和下一次出发。</p><a class="text-link" href="${link("choose.html")}">把喜欢的时光，留给自己 ${arrow}</a><span class="about-signature">One city. Two beautiful sides.</span><details class="business-model"><summary>我们的合作方式 · 课程演示</summary><p>景区及本地体验导流、酒店民宿预订导流、明确标注的合作展示位。榜单独立排序。当前商家、价格、评价与交易流程均为教学示例。</p></details></div></section>`;
+      return `${hero()}${discovery.home()}<section class="about-section wrap" id="about"><div class="about-photo reveal">${image("forest", "阳光穿过森林的氛围摄影", 'loading="lazy"')}<span class="photo-caption">GO SLOW. DISCOVER MORE.</span><div class="photo-label">生活需要一点<br><em>留白。</em></div></div><div class="about-copy reveal"><div class="eyebrow">THE DAYTRIP PHILOSOPHY</div><h2>旅行不必很远，<br>日夜都有<span class="serif-accent">新发现。</span></h2><p>我们相信，城市有不止一种表情。<br>白天的湖光，亮灯后的街巷，一份热乎的早餐，<br>都值得我们认真停留。</p><p>拾光微旅，让半天、一个夜晚或完整一日，<br>成为刚刚好的小出走。再把这份喜欢，<br>延伸到一晚小住和下一次出发。</p><a class="text-link" href="${link("choose.html")}">把喜欢的时光，留给自己 ${arrow}</a><span class="about-signature">Every city. New little stories.</span><details class="business-model"><summary>我们的合作方式 · 课程演示</summary><p>景区及本地体验导流、酒店民宿预订导流、明确标注的合作展示位。榜单独立排序。当前商家、价格、评价与交易流程均为教学示例。</p></details></div></section>`;
     },
+    footprints() { return discovery.footprintsPage(); },
     choose() {
-      return `<section class="wrap planner-section">${steps(1)}<div class="page-heading"><div class="eyebrow">YOUR TIME, YOUR LITTLE ESCAPE</div><h1>挑一段时光，遇见<span class="serif-accent">城市的另一面。</span></h1><p>从日光到夜色，从半日轻游到完整一天，找到此刻喜欢的节奏。</p></div><form id="preference-form" action="routes.html" method="get"><fieldset class="duration-fieldset period-fieldset"><legend><span>01</span> 留哪一段时光，给这次微旅？</legend><div class="duration-options">${Object.entries(
+      return `<section class="wrap planner-section">${steps(1)}<div class="page-heading"><div class="eyebrow">YOUR TIME, YOUR LITTLE ESCAPE</div><h1>挑一段时光，遇见<span class="serif-accent">城市的另一面。</span></h1><p>从日光到夜色，从半日轻游到完整一天，找到此刻喜欢的节奏。</p></div><form id="preference-form" action="routes.html" method="get"><fieldset class="city-fieldset"><legend><span>01</span> 先选一座，想去的城市</legend>${cityPicker("choose-city", true)}<p class="city-choice-intro">${city?.intro || "从想去的地方开始，不预设你的所在地。"}</p></fieldset><fieldset class="duration-fieldset period-fieldset"><legend><span>02</span> 留哪一段时光，给这次微旅？</legend><div class="duration-options">${Object.entries(
         periods,
       )
         .map(
@@ -196,30 +247,15 @@
         )
         .join(
           "",
-        )}</div></fieldset><fieldset class="style-fieldset"><legend><span>02</span> 再选一种，喜欢的旅行心情 <small>单选一项</small></legend><div class="theme-grid choice-grid">${themeCards(true)}</div></fieldset><div class="choose-bottom"><p>${icon("sparkle")} 白天与夜晚，都有专属行程。<small>三种兴趣 × 三种时段，共九套武汉教学示例。下一步可对比预算、步调与出发提醒。</small></p><button class="btn" type="submit">发现我的微旅路线 ${arrow}</button></div></form></section>`;
+        )}</div></fieldset><fieldset class="style-fieldset"><legend><span>03</span> 再选一种，喜欢的旅行心情 <small>单选一项</small></legend><div class="theme-grid choice-grid">${themeCards(true)}</div></fieldset><div class="choose-bottom"><p>${icon("sparkle")} 白天与夜晚，都有专属行程。<small>12 座城市 × 三种兴趣 × 三种时段，共 108 套教学行程。下一步可对比预算、步调与出发提醒。</small></p><button class="btn" type="submit">发现我的微旅路线 ${arrow}</button></div></form></section>`;
     },
-    routes() {
-      const preferred = Object.hasOwn(themes, params.get("style"));
-      const sorted = routes
-        .map((r) => experience.routeView(r, period))
-        .sort((a, b) => Number(b.theme === style) - Number(a.theme === style));
-      return `<section class="wrap routes-section">${steps(2)}<div class="page-heading"><div class="eyebrow">${period === "night" ? "AFTER DARK, BEFORE THE MEMORIES FADE" : "GOOD MOMENTS START HERE"}</div><h1>${period === "night" ? "城市亮起灯，" : "好风景，"}<span class="serif-accent">${period === "night" ? "你的夜晚才刚开始。" : "已经为你准备好了。"}</span></h1><p>把预算、步调和出发提醒放在一起，挑一条适合自己的路线。</p></div>${periodLinks("routes.html", { style })}<div class="route-toolbar"><span class="city-label">${icon("pin")} 中国 · 武汉 <span>WUHAN</span></span><div class="route-filters" aria-label="路线兴趣筛选"><button class="filter active" data-filter="all" aria-pressed="true">全部路线 <small>03</small></button>${Object.entries(
-        themes,
-      )
-        .map(
-          ([key, t]) =>
-            `<button class="filter" data-filter="${key}" aria-pressed="false">${t.name}</button>`,
-        )
-        .join(
-          "",
-        )}</div></div>${preferred ? `<div class="recommend-note">${icon("sparkle")} ${periods[period].name} · 按你的兴趣，将「${themes[style].name}」排在首位；其余路线也可自由比较。<a href="${link("choose.html", { style })}">调整偏好 ${arrow}</a></div>` : ""}<div class="route-grid">${sorted.map((item) => `<article class="route-card" data-theme="${item.theme}"><a class="route-photo" href="${detailURL(item)}" aria-label="查看${item.name}">${image(item.image, `${item.name}主题氛围摄影`)}${preferred && item.theme === style ? '<span class="recommended">为你推荐</span>' : ""}<span class="route-photo-caption">${item.english}</span></a><div class="route-card-body"><div class="route-card-meta">${tag(item.theme)}<span>${icon(periods[period].icon)} ${periods[period].name}</span></div><h2><a href="${detailURL(item)}">${item.name}</a></h2><p>${item.intro}</p><div class="keywords">${item.keywords.map((w) => `<span>${w}</span>`).join("")}</div><div class="route-hours">${icon("clock")} ${item.hours}<span>${item.stops.length} 个时刻</span></div>${planningCard(item)}<div class="route-card-bottom"><span class="route-match">${icon(item.theme === style && preferred ? "check" : "sparkle")} ${item.theme === style && preferred ? "与你的兴趣一致" : "另一种旅行灵感"}</span><a class="btn btn-small" href="${detailURL(item)}">查看行程 ${arrow}</a></div></div></article>`).join("")}</div><div class="route-footnote">${icon("leaf")} 路线是灵感，步调由你决定。<span>预算按餐饮、市内交通与弹性体验人工估算，可参考 ¥100 / ¥200 / ¥400 三档安排；不含住宿、购物与往返出发地。开放与预约信息请出发前核实。</span></div><div class="route-help"><div><span class="eyebrow">DAYLIGHT & AFTER DARK</span><h3>一座城，值得喜欢两次。</h3><p>收集日光章与夜游章，拼成属于你的城市双面纪念卡。</p></div><a class="text-link" href="${link("index.html")}#rankings">看看大家的探索手记 ${arrow}</a></div></section>`;
-    },
+    routes() { return discovery.routesPage(); },
     detail() {
       const offer = data.offers[route.id];
-      return `<section class="detail-hero"><div class="detail-hero-image">${image(route.image, `${route.name}主题氛围摄影`, 'fetchpriority="high"')}</div><div class="detail-overlay"></div><div class="wrap detail-hero-content"><a class="back-light" href="${link("routes.html", { style: route.theme })}">${icon("back")} 返回路线列表</a><div>${tag(route.theme)} ${periodBadge()}<div class="eyebrow light">${route.english.toUpperCase()}</div><h1>${route.name}</h1><p>${route.quote}</p></div><span class="detail-location">${icon("pin")} 武汉 · WUHAN</span></div></section><div class="wrap"><div class="overview"><div>${icon(periods[period].icon)}<span><small>旅行时光</small><b>${periods[period].name} · ${route.hours}</b></span></div><div>${icon("pin")}<span><small>行程节点</small><b>${route.stops.length} 个美好时刻</b></span></div><div>${icon(themes[route.theme].icon)}<span><small>旅行心情</small><b>${themes[route.theme].name}</b></span></div><div>${icon("map")}<span><small>建议出行方式</small><b>${period === "night" ? "步行 / 公共交通" : route.transport}</b></span></div></div><div class="detail-period">${periodLinks("detail.html", { route: route.id, style: route.theme })}</div>${planningDetail()}<div class="detail-grid"><section class="itinerary"><div class="eyebrow">YOUR LITTLE ESCAPE</div><h2>把${period === "night" ? "夜晚" : "今天"}，慢慢展开。</h2><p class="itinerary-intro">${route.intro}</p><ol class="timeline">${route.stops.map((stop, i) => `<li class="timeline-item reveal"><div class="timeline-time"><span>${stop[0]}</span><i>${i + 1}</i></div><article class="timeline-content"><div class="stop-label">${icon(stop[3])} ${stop[4]}</div><h3>${stop[1]}</h3><p>${stop[2]}</p>${stop[5] ? `<div class="stop-photo">${image(stop[5], stop[5] === "night" ? "武汉夜色氛围示意摄影" : `${stop[4]}主题氛围摄影`, 'loading="lazy"')}</div>` : ""}</article></li>`).join("")}</ol><article class="offer-card"><div class="offer-icon">${icon(themes[route.theme].icon)}</div><div><span class="eyebrow">合作体验 · 教学示例</span><h3>${offer.name}</h3><p>给喜欢的主题，多一点体验的深度。</p></div><button class="text-link" data-offer>查看示例套餐 ${arrow}</button></article></section><aside class="journey-sidebar"><div class="mini-map"><span class="eyebrow">A MOMENT TO REMEMBER</span><h3>这次，收集一枚${periods[period].badge}</h3>${badgePair()}<p>同一座城，日夜两种表情。<br>慢慢走，把喜欢的都留下。</p><small>点击完成旅行后记入本地模拟记录</small></div><div class="tips"><h3>${icon(periods[period].icon)} 出发前的小叮咛</h3><ul>${route.tips.map((t) => `<li>${t}</li>`).join("")}</ul></div><div class="demo-note">行程与时间为教学示例。图片为主题氛围示意，不代表每个节点现场。开放区域与交通安排以当天信息为准。</div></aside></div>${staySection()}<div class="detail-finish"><div><span class="eyebrow">KEEP BOTH SIDES OF THE CITY</span><h2>这一程的喜欢，值得被收藏。</h2><p>留下纪念卡，也点亮你的${periods[period].badge}。</p></div><button class="btn" data-complete>完成今日旅行，领取纪念卡 ${arrow}</button></div><a class="text-link detail-back" href="${link("routes.html", { style: route.theme })}">${icon("back")} 返回路线列表</a></div>`;
+      return `<section class="detail-hero"><div class="detail-hero-image">${image(route.image, `${route.name}主题氛围摄影`, 'fetchpriority="high"')}</div><div class="detail-overlay"></div><div class="wrap detail-hero-content"><a class="back-light" href="${routeListURL()}">${icon("back")} 返回路线列表</a><div>${tag(route.theme)} ${periodBadge()}<div class="eyebrow light">${route.english.toUpperCase()}</div><h1>${route.name}</h1><p>${route.quote}</p></div><span class="detail-location">${icon("pin")} ${city.name} · ${city.english.toUpperCase()}</span></div></section><div class="wrap"><div class="overview"><div>${icon(periods[period].icon)}<span><small>旅行时光</small><b>${periods[period].name} · ${route.hours}</b></span></div><div>${icon("pin")}<span><small>行程节点</small><b>${route.stops.length} 个美好时刻</b></span></div><div>${icon(themes[route.theme].icon)}<span><small>旅行心情</small><b>${themes[route.theme].name}</b></span></div><div>${icon("map")}<span><small>建议出行方式</small><b>${route.transport}</b></span></div></div><div class="detail-period">${periodLinks("detail.html", { route: route.id, style: route.theme, returnTo: params.get("returnTo") })}</div>${journeySummary()}${planningDetail()}<div class="detail-grid"><section class="itinerary"><div class="eyebrow">YOUR LITTLE ESCAPE</div><h2>把${period === "night" ? "夜晚" : "今天"}，慢慢展开。</h2><p class="itinerary-intro">${route.intro}</p><ol class="timeline">${route.stops.map((stop, i) => `<li class="timeline-item reveal"><div class="timeline-time"><span>${stop[0]}</span><i>${i + 1}</i></div><article class="timeline-content"><div class="stop-label">${icon(stop[3])} ${stop[4]}</div><h3>${stop[1]}</h3><p>${stop[2]}</p>${stop[5] ? `<div class="stop-photo">${image(stop[5], stop[5] === "night" ? `${city.name}夜色氛围示意摄影` : `${city.name}主题实景摄影（非节点逐点实拍）`, 'loading="lazy"')}</div>` : ""}</article></li>`).join("")}</ol><article class="offer-card"><div class="offer-icon">${icon(themes[route.theme].icon)}</div><div><span class="eyebrow">合作体验 · 教学示例</span><h3>${offer.name}</h3><p>给喜欢的主题，多一点体验的深度。</p></div><button class="text-link" data-offer>查看示例套餐 ${arrow}</button></article></section><aside class="journey-sidebar"><div class="mini-map"><span class="eyebrow">A MOMENT TO REMEMBER</span><h3>这次，收集一枚${periods[period].badge}</h3>${badgePair()}<p>同一座城，日夜两种表情。<br>慢慢走，把喜欢的都留下。</p><small>点击完成旅行后记入本地模拟记录</small></div><div class="tips"><h3>${icon(periods[period].icon)} 出发前的小叮咛</h3><ul>${route.tips.map((t) => `<li>${t}</li>`).join("")}</ul></div>${sourceNotes()}<div class="demo-note">行程与时间为教学示例。图片为主题氛围示意，不代表每个节点现场。开放区域与交通安排以当天信息为准。</div></aside></div>${staySection()}<div class="detail-finish"><div><span class="eyebrow">KEEP BOTH SIDES OF THE CITY</span><h2>这一程的喜欢，值得被收藏。</h2><p>留下纪念卡，也点亮你的${periods[period].badge}。</p></div><button class="btn" data-complete>完成今日旅行，领取纪念卡 ${arrow}</button></div><a class="text-link local-footprint-link" href="${link("footprints.html", {city:cityId})}">查看${city.name}足迹 ${icon("arrow")}</a><a class="text-link detail-back" href="${routeListURL()}">${icon("back")} 返回路线列表</a></div>`;
     },
     finish() {
-      const state = experience.getState();
+      const state = experience.getCityState(cityId);
       const dual = state.badges.length === 2;
       const completed = state.completed.includes(`${route.id}:${period}`);
       const stay = experience.selectedStay(route.id, period);
@@ -229,13 +265,12 @@
         month: "2-digit",
         day: "2-digit",
       });
-      return `<section class="finish-section wrap"><div class="page-heading"><span class="completion-check">${icon(completed ? "check" : "camera")}</span><div class="eyebrow">${dual ? "TWO SIDES, ONE BEAUTIFUL CITY" : "LITTLE MOMENTS, LASTING MEMORIES"}</div><h1>${completed ? "这一程的小美好，" : "先看看，"}<span class="serif-accent">${completed ? "已成功收藏。" : "你的微旅纪念卡。"}</span></h1><p>${dual ? "日光与夜色已集齐，武汉的两种美好，都在这里。" : "旅行不在远方，而在每一次认真感受生活的瞬间。"}</p></div><article class="memory-card ${dual ? "dual" : ""}"><div class="memory-photo">${dual ? `<div class="dual-photo">${image("lake", "日光中的武汉东湖")}${image("night", "武汉夜色")}</div><div class="dual-labels"><span>DAYLIGHT</span><span>AFTER DARK</span></div>` : image(route.image, `${route.name}纪念氛围摄影`)}<span class="memory-photo-title">${dual ? "One city. Two beautiful sides." : period === "night" ? "A little night to remember." : "One beautiful escape."}</span><span class="memory-label">DAYTRIP COLLECTION / WUHAN</span></div><div class="memory-content"><div class="memory-topline"><span>我的武汉微旅 · ${dual ? "日夜双面" : "时光"}纪念卡</span>${icon("sparkle")}</div><h2>${route.name}</h2><p>「${route.quote}」</p><div class="memory-stamp"><span>拾 光 微 旅</span>${icon(periods[period].icon)}<b>${completed ? periods[period].badge : "微旅预览"}</b><small>${dual ? "DAY & NIGHT" : "KEEP THE MOMENT"}</small></div><div class="memory-details"><span>${icon("pin")} 武汉 · 中国</span><time datetime="${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}">${date}</time><span>${periods[period].name}</span></div>${stay ? `<div class="memory-stay">${icon("bed")}<span><b>多留一晚 · ${stay.name}</b><small>延住计划已收好 · 未产生真实预订</small></span><a href="${detailURL(baseRoute)}#stays">调整计划</a></div>` : ""}<div class="memory-bottom"><span>KEEP THE MOMENT. FEEL THE JOY.</span><span>拾光微旅 ↗</span></div></div></article><p class="finish-note">${icon(completed ? "check" : "camera")} ${completed ? `模拟完成 · 已探索 ${state.visited.length} 个不同地点，重复地点不累加。` : "此页为纪念卡预览，直接访问不会增加打卡或纪念章。"}</p>${!experience.isPersistent() ? '<p class="storage-note">浏览器存储不可用，本次页面内保留演示状态，刷新后可能丢失。</p>' : ""}<div class="finish-collection">${badgePair()}<p>${dual ? "日夜双章已集齐，下一次也请跟着喜欢出发。" : "再收集另一种时光，就能解锁城市双面纪念卡。"}</p></div><div class="finish-actions"><a class="btn" href="${link("choose.html", {}, period === "night" ? "day" : "night")}">探索${period === "night" ? "日光" : "夜色"} ${arrow}</a><a class="btn btn-outline" href="${link("index.html")}">返回首页 ${icon("back")}</a></div><a class="finish-detail-link" href="${detailURL(baseRoute)}">再看看这次的行程${stay ? "与延住计划" : ""}</a></section>`;
+      return `<section class="finish-section wrap"><div class="page-heading"><span class="completion-check">${icon(completed ? "check" : "camera")}</span><div class="eyebrow">${dual ? "TWO SIDES, ONE BEAUTIFUL CITY" : "LITTLE MOMENTS, LASTING MEMORIES"}</div><h1>${completed ? "这一程的小美好，" : "先看看，"}<span class="serif-accent">${completed ? "已成功收藏。" : "你的微旅纪念卡。"}</span></h1><p>${dual ? `日光与夜色已集齐，${city.name}的两种美好，都在这里。` : "旅行不在远方，而在每一次认真感受生活的瞬间。"}</p></div><article class="memory-card ${dual ? "dual" : ""}"><div class="memory-photo">${dual ? `<div class="dual-photo">${image(city.images.nature, `${city.name}日光实景`)}${image(city.images.night, `${city.name}夜色实景`)}</div><div class="dual-labels"><span>DAYLIGHT</span><span>AFTER DARK</span></div>` : image(route.image, `${route.name}纪念氛围摄影`)}<span class="memory-photo-title">${dual ? "One city. Two beautiful sides." : period === "night" ? "A little night to remember." : "One beautiful escape."}</span><span class="memory-label">DAYTRIP COLLECTION / ${city.english.toUpperCase()}</span></div><div class="memory-content"><div class="memory-topline"><span>我的${city.name}微旅 · ${dual ? "日夜双面" : "时光"}纪念卡</span>${icon("sparkle")}</div><h2>${route.name}</h2><p>「${route.quote}」</p><div class="memory-stamp"><span>拾 光 微 旅</span>${icon(periods[period].icon)}<b>${completed ? periods[period].badge : "微旅预览"}</b><small>${dual ? "DAY & NIGHT" : "KEEP THE MOMENT"}</small></div><div class="memory-details"><span>${icon("pin")} ${city.name} · 中国</span><time datetime="${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}">${date}</time><span>${periods[period].name}</span></div>${stay ? `<div class="memory-stay">${icon("bed")}<span><b>多留一晚 · ${stay.name}</b><small>延住计划已收好 · 未产生真实预订</small></span><a href="${detailURL(baseRoute)}#stays">调整计划</a></div>` : ""}<div class="memory-bottom"><span>KEEP THE MOMENT. FEEL THE JOY.</span><span>拾光微旅 ↗</span></div></div></article><p class="finish-note">${icon(completed ? "check" : "camera")} ${completed ? `模拟完成 · 已探索 ${state.visited.length} 个不同地点，重复地点不累加。` : "此页为纪念卡预览，直接访问不会增加打卡或纪念章。"}</p>${!experience.isPersistent() ? '<p class="storage-note">浏览器存储不可用，本次页面内保留演示状态，刷新后可能丢失。</p>' : ""}<div class="finish-collection">${badgePair()}<p>${dual ? "日夜双章已集齐，下一次也请跟着喜欢出发。" : "再收集另一种时光，就能解锁城市双面纪念卡。"}</p></div><div class="finish-passport-links"><a class="text-link" href="${link("footprints.html", {city:cityId})}">查看本城足迹 ${icon("arrow")}</a><a class="text-link" href="${link("footprints.html")}">查看全部足迹 ${icon("map")}</a></div><div class="finish-actions"><a class="btn" href="${link("choose.html", {}, period === "night" ? "day" : "night")}">探索${period === "night" ? "日光" : "夜色"} ${arrow}</a><a class="btn btn-outline" href="${link("index.html")}">返回首页 ${icon("back")}</a></div><a class="finish-detail-link" href="${detailURL(baseRoute)}">再看看这次的行程${stay ? "与延住计划" : ""}</a></section>`;
     },
   };
-  document.getElementById("main-content").innerHTML = (
-    views[page] || views.home
-  )();
-  document.title = `${page === "detail" ? route.name : page === "finish" ? "收藏微旅记忆" : { home: "一座城，日夜都有新发现", choose: "选择旅行时光", routes: "发现武汉微旅" }[page] || "DAYTRIP"} — 拾光微旅 DAYTRIP`;
+  const render = ['detail','finish'].includes(page) && !route ? discovery.missingRoute : (views[page] || views.home);
+  document.getElementById("main-content").innerHTML = render();
+  document.title = `${page === "detail" ? (route?.name || "选择微旅行程") : page === "finish" ? "收藏微旅记忆" : { home: "每座城，日夜都有新发现", choose: "选择旅行时光", routes: city ? `发现${city.name}微旅` : "探索城市路线", footprints: "我的跨城足迹" }[page] || "DAYTRIP"} — 拾光微旅 DAYTRIP`;
 
   // 原生 dialog 提供 Escape、焦点限制与关闭后的焦点恢复。
   const dialog = document.createElement("dialog");
@@ -256,6 +291,7 @@
     if (dialogTrigger?.isConnected) dialogTrigger.focus();
   });
   function stayStatus() {
+    if (!route) return;
     const selected = experience.selectedStay(route.id, period);
     const container = document.querySelector(".stay-selection");
     if (!container) return;
@@ -272,20 +308,6 @@
       );
   }
   stayStatus();
-  function renderRanking() {
-    document.querySelectorAll("[data-ranking]").forEach((tab) => {
-      const active = tab.dataset.ranking === rankingType;
-      tab.setAttribute("aria-selected", String(active));
-      tab.tabIndex = active ? 0 : -1;
-    });
-    const panel = document.getElementById("ranking-panel");
-    panel.innerHTML = rankingRows();
-    panel.setAttribute("aria-labelledby", `tab-${rankingType}`);
-    const button = document.querySelector(".ranking-expand");
-    button.setAttribute("aria-expanded", String(rankingExpanded));
-    button.innerHTML = `${rankingExpanded ? "收起榜单" : "展开前五名"} ${arrow}`;
-    watchImages(panel);
-  }
   document.addEventListener("click", (event) => {
     const button = event.target.closest("button");
     if (!button) return;
@@ -320,57 +342,15 @@
         button,
       );
     }
-    if (button.hasAttribute("data-ranking")) {
-      rankingType = button.dataset.ranking;
-      rankingExpanded = false;
-      renderRanking();
-    }
-    if (button.classList.contains("ranking-expand")) {
-      rankingExpanded = !rankingExpanded;
-      renderRanking();
-    }
-    if (button.hasAttribute("data-user")) {
-      const user = data.rankings.users[Number(button.dataset.user)];
-      if (!user) return;
-      openDialog(
-        `<div class="dialog-body explorer-dialog">${demo}<span class="user-avatar">${user.initials}</span><h2 id="dialog-title">${user.name}的探索手记</h2><p>${user.motto}</p><p class="explorer-count">${user.places.length} <small>个不同地点 · 模拟用户</small></p><ul class="explored-places">${user.places.map((id) => `<li>${icon("check")}${data.places[id]}</li>`).join("")}</ul><p class="dialog-disclaimer">虚构用户与示例记录，用于展示用户探索者榜。</p></div>`,
-        button,
-      );
-    }
-    if (button.hasAttribute("data-my-record")) {
-      const state = experience.getState();
-      openDialog(
-        `<div class="dialog-body explorer-dialog"><div class="eyebrow">MY LITTLE DISCOVERIES</div><h2 id="dialog-title">我的武汉探索手记</h2>${badgePair()}<p>已探索 ${state.visited.length} 个不同地点</p>${state.visited.length ? `<ul class="explored-places">${state.visited.map((id) => `<li>${icon("check")}${data.places[id]}</li>`).join("")}</ul>` : '<p class="empty-record">手记还是空白的，去完成一段喜欢的微旅吧。</p>'}<p class="dialog-disclaimer">只在本浏览器内保存模拟记录，不参与真实用户排名；重复地点不累计。</p></div>`,
-        button,
-      );
-    }
     if (button.hasAttribute("data-complete")) {
       experience.complete(route.id, period);
       location.href = link("finish.html", {
         route: route.id,
         style: route.theme,
+        returnTo: params.get('returnTo'),
       });
     }
   });
-  document.querySelectorAll("[data-ranking]").forEach((tab) =>
-    tab.addEventListener("keydown", (event) => {
-      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key))
-        return;
-      event.preventDefault();
-      rankingType =
-        event.key === "Home"
-          ? "places"
-          : event.key === "End"
-            ? "users"
-            : rankingType === "places"
-              ? "users"
-              : "places";
-      rankingExpanded = false;
-      renderRanking();
-      document.querySelector(`[data-ranking="${rankingType}"]`).focus();
-    }),
-  );
-
   document.querySelectorAll("[data-departure-check]").forEach((input) => {
     input.addEventListener("change", () => {
       const inputs = [...document.querySelectorAll("[data-departure-check]")];
@@ -415,22 +395,13 @@
         location.href = `routes.html?${new URLSearchParams(values)}`;
       });
   }
-  document.querySelectorAll("[data-filter]").forEach((button) =>
-    button.addEventListener("click", () => {
-      document.querySelectorAll("[data-filter]").forEach((item) => {
-        item.classList.toggle("active", item === button);
-        item.setAttribute("aria-pressed", String(item === button));
-      });
-      document
-        .querySelectorAll(".route-card")
-        .forEach(
-          (card) =>
-            (card.hidden =
-              button.dataset.filter !== "all" &&
-              card.dataset.theme !== button.dataset.filter),
-        );
-    }),
-  );
+  document.querySelectorAll('[data-city-switch]').forEach(select=>select.addEventListener('change',()=>{
+    const target=page==='choose'?'choose.html':'routes.html';
+    const selectedStyle=document.querySelector('[name="style"]:checked')?.value||style;
+    location.href=link(target,{city:select.value||null,style:selectedStyle});
+  }));
+  setupCityDirectory();
+  discovery.mount();
 
   // 自动播放的暂停原因彼此独立，手动暂停不会被移出鼠标意外取消。
   if (page === "home") {
@@ -470,7 +441,7 @@
       pauseButton.disabled = motion.matches;
     }
     function show(next, manual = false) {
-      index = (next + data.stories.length) % data.stories.length;
+      index = (next + stories.length) % stories.length;
       carousel.dataset.slide = String(index);
       carousel.querySelectorAll("[data-story]").forEach((slide, i) => {
         slide.classList.toggle("active", i === index);
@@ -480,10 +451,10 @@
       carousel.querySelector(".story-counter").innerHTML =
         `0${index + 1} <small>/ 03</small>`;
       carousel.querySelector(".story-caption").innerHTML =
-        `${icon("pin")} ${data.stories[index].caption}`;
+        `${icon("pin")} ${stories[index].caption}`;
       if (manual)
         carousel.querySelector(".story-status").textContent =
-          `已切换到${periods[data.stories[index].period].name}故事，第 ${index + 1} 张，共 3 张。`;
+          `已切换到${periods[stories[index].period].name}故事，第 ${index + 1} 张，共 3 张。`;
     }
     function restart() {
       clearInterval(timer);

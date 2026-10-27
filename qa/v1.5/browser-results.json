@@ -1,0 +1,4234 @@
+{
+  "date": "2026-10-27",
+  "version": "1.5",
+  "details": [
+    {
+      "route": "donghu",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "donghu",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "donghu",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "jianghan",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "jianghan",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "jianghan",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "wuhan-food",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "wuhan-food",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "wuhan-food",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "hangzhou-nature",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "hangzhou-nature",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "hangzhou-nature",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "hangzhou-city",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "hangzhou-city",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "hangzhou-city",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "hangzhou-food",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "hangzhou-food",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "hangzhou-food",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "beijing-nature",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "beijing-nature",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "beijing-nature",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "beijing-city",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "beijing-city",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "beijing-city",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "beijing-food",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "beijing-food",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "beijing-food",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "shanghai-nature",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "shanghai-nature",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "shanghai-nature",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "shanghai-city",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "shanghai-city",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "shanghai-city",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "shanghai-food",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "shanghai-food",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "shanghai-food",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "xian-nature",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "xian-nature",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "xian-nature",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "xian-city",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "xian-city",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "xian-city",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "xian-food",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "xian-food",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "xian-food",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "chengdu-nature",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "chengdu-nature",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "chengdu-nature",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "chengdu-city",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "chengdu-city",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "chengdu-city",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "chengdu-food",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "chengdu-food",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "chengdu-food",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "chongqing-nature",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "chongqing-nature",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "chongqing-nature",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "chongqing-city",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "chongqing-city",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "chongqing-city",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "chongqing-food",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "chongqing-food",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "chongqing-food",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "nanjing-nature",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "nanjing-nature",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "nanjing-nature",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "nanjing-city",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "nanjing-city",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "nanjing-city",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "nanjing-food",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "nanjing-food",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "nanjing-food",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "guangzhou-nature",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "guangzhou-nature",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "guangzhou-nature",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "guangzhou-city",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "guangzhou-city",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "guangzhou-city",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "guangzhou-food",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "guangzhou-food",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "guangzhou-food",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "suzhou-nature",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "suzhou-nature",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "suzhou-nature",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "suzhou-city",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "suzhou-city",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "suzhou-city",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "suzhou-food",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "suzhou-food",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "suzhou-food",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "xiamen-nature",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "xiamen-nature",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "xiamen-nature",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "xiamen-city",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "xiamen-city",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "xiamen-city",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "xiamen-food",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "xiamen-food",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "xiamen-food",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "changsha-nature",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "changsha-nature",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "changsha-nature",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "changsha-city",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "changsha-city",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "changsha-city",
+      "period": "full",
+      "nodes": 6
+    },
+    {
+      "route": "changsha-food",
+      "period": "day",
+      "nodes": 4
+    },
+    {
+      "route": "changsha-food",
+      "period": "night",
+      "nodes": 4
+    },
+    {
+      "route": "changsha-food",
+      "period": "full",
+      "nodes": 6
+    }
+  ],
+  "flows": [
+    {
+      "city": "wuhan",
+      "stay": true,
+      "dual": true,
+      "deduplicated": true
+    },
+    {
+      "city": "beijing",
+      "stay": true,
+      "dual": true,
+      "deduplicated": true
+    },
+    {
+      "city": "shanghai",
+      "stay": true,
+      "dual": true,
+      "deduplicated": true
+    },
+    {
+      "city": "xian",
+      "stay": true,
+      "dual": true,
+      "deduplicated": true
+    },
+    {
+      "city": "chengdu",
+      "stay": true,
+      "dual": true,
+      "deduplicated": true
+    },
+    {
+      "city": "hangzhou",
+      "stay": true,
+      "dual": true,
+      "deduplicated": true
+    },
+    {
+      "city": "chongqing",
+      "stay": true,
+      "dual": true,
+      "deduplicated": true
+    },
+    {
+      "city": "nanjing",
+      "stay": true,
+      "dual": true,
+      "deduplicated": true
+    },
+    {
+      "city": "guangzhou",
+      "stay": true,
+      "dual": true,
+      "deduplicated": true
+    },
+    {
+      "city": "suzhou",
+      "stay": true,
+      "dual": true,
+      "deduplicated": true
+    },
+    {
+      "city": "xiamen",
+      "stay": true,
+      "dual": true,
+      "deduplicated": true
+    },
+    {
+      "city": "changsha",
+      "stay": true,
+      "dual": true,
+      "deduplicated": true
+    }
+  ],
+  "responsive": [
+    {
+      "width": 320,
+      "city": "wuhan",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "wuhan",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "wuhan",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "wuhan",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "wuhan",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "wuhan",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "wuhan",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "wuhan",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "wuhan",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "wuhan",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "beijing",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "beijing",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "beijing",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "beijing",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "beijing",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "beijing",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "beijing",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "beijing",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "beijing",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "beijing",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "shanghai",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "shanghai",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "shanghai",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "shanghai",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "shanghai",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "shanghai",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "shanghai",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "shanghai",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "shanghai",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "shanghai",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "xian",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "xian",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "xian",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "xian",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "xian",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "xian",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "xian",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "xian",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "xian",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "xian",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "chengdu",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "chengdu",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "chengdu",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "chengdu",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "chengdu",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "chengdu",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "chengdu",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "chengdu",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "chengdu",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "chengdu",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "chongqing",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "chongqing",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "chongqing",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "chongqing",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "chongqing",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "chongqing",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "chongqing",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "chongqing",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "chongqing",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "chongqing",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "nanjing",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "nanjing",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "nanjing",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "nanjing",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "nanjing",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "nanjing",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "nanjing",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "nanjing",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "nanjing",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "nanjing",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "suzhou",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "suzhou",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "suzhou",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "suzhou",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "suzhou",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "suzhou",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "suzhou",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "suzhou",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "suzhou",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "suzhou",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "xiamen",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "xiamen",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "xiamen",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "xiamen",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "xiamen",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "xiamen",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "xiamen",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "xiamen",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "xiamen",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "xiamen",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "changsha",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "changsha",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "changsha",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "changsha",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "changsha",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 320,
+      "city": "changsha",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 320,
+      "city": "changsha",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 320,
+      "city": "changsha",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 320,
+      "city": "changsha",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 320,
+      "city": "changsha",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "wuhan",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "wuhan",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "wuhan",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "wuhan",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "wuhan",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "wuhan",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "wuhan",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "wuhan",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "wuhan",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "wuhan",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "beijing",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "beijing",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "beijing",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "beijing",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "beijing",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "beijing",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "beijing",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "beijing",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "beijing",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "beijing",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "shanghai",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "shanghai",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "shanghai",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "shanghai",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "shanghai",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "shanghai",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "shanghai",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "shanghai",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "shanghai",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "shanghai",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "xian",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "xian",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "xian",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "xian",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "xian",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "xian",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "xian",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "xian",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "xian",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "xian",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "chengdu",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "chengdu",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "chengdu",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "chengdu",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "chengdu",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "chengdu",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "chengdu",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "chengdu",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "chengdu",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "chengdu",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "chongqing",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "chongqing",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "chongqing",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "chongqing",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "chongqing",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "chongqing",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "chongqing",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "chongqing",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "chongqing",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "chongqing",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "nanjing",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "nanjing",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "nanjing",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "nanjing",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "nanjing",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "nanjing",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "nanjing",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "nanjing",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "nanjing",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "nanjing",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "suzhou",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "suzhou",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "suzhou",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "suzhou",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "suzhou",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "suzhou",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "suzhou",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "suzhou",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "suzhou",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "suzhou",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "xiamen",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "xiamen",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "xiamen",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "xiamen",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "xiamen",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "xiamen",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "xiamen",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "xiamen",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "xiamen",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "xiamen",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "changsha",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "changsha",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "changsha",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "changsha",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "changsha",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 390,
+      "city": "changsha",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 390,
+      "city": "changsha",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 390,
+      "city": "changsha",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 390,
+      "city": "changsha",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 390,
+      "city": "changsha",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "wuhan",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "wuhan",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "wuhan",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "wuhan",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "wuhan",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "wuhan",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "wuhan",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "wuhan",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "wuhan",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "wuhan",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "beijing",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "beijing",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "beijing",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "beijing",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "beijing",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "beijing",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "beijing",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "beijing",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "beijing",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "beijing",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "shanghai",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "shanghai",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "shanghai",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "shanghai",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "shanghai",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "shanghai",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "shanghai",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "shanghai",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "shanghai",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "shanghai",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "xian",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "xian",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "xian",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "xian",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "xian",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "xian",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "xian",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "xian",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "xian",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "xian",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "chengdu",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "chengdu",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "chengdu",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "chengdu",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "chengdu",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "chengdu",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "chengdu",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "chengdu",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "chengdu",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "chengdu",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "chongqing",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "chongqing",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "chongqing",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "chongqing",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "chongqing",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "chongqing",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "chongqing",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "chongqing",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "chongqing",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "chongqing",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "nanjing",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "nanjing",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "nanjing",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "nanjing",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "nanjing",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "nanjing",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "nanjing",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "nanjing",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "nanjing",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "nanjing",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "suzhou",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "suzhou",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "suzhou",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "suzhou",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "suzhou",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "suzhou",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "suzhou",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "suzhou",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "suzhou",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "suzhou",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "xiamen",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "xiamen",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "xiamen",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "xiamen",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "xiamen",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "xiamen",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "xiamen",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "xiamen",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "xiamen",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "xiamen",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "changsha",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "changsha",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "changsha",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "changsha",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "changsha",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 768,
+      "city": "changsha",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 768,
+      "city": "changsha",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 768,
+      "city": "changsha",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 768,
+      "city": "changsha",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 768,
+      "city": "changsha",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "wuhan",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "wuhan",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "wuhan",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "wuhan",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "wuhan",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "wuhan",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "wuhan",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "wuhan",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "wuhan",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "wuhan",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "beijing",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "beijing",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "beijing",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "beijing",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "beijing",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "beijing",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "beijing",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "beijing",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "beijing",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "beijing",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "shanghai",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "shanghai",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "shanghai",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "shanghai",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "shanghai",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "shanghai",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "shanghai",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "shanghai",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "shanghai",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "shanghai",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "xian",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "xian",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "xian",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "xian",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "xian",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "xian",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "xian",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "xian",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "xian",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "xian",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "chengdu",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "chengdu",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "chengdu",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "chengdu",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "chengdu",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "chengdu",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "chengdu",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "chengdu",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "chengdu",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "chengdu",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "chongqing",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "chongqing",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "chongqing",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "chongqing",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "chongqing",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "chongqing",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "chongqing",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "chongqing",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "chongqing",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "chongqing",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "nanjing",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "nanjing",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "nanjing",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "nanjing",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "nanjing",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "nanjing",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "nanjing",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "nanjing",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "nanjing",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "nanjing",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "suzhou",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "suzhou",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "suzhou",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "suzhou",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "suzhou",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "suzhou",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "suzhou",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "suzhou",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "suzhou",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "suzhou",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "xiamen",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "xiamen",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "xiamen",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "xiamen",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "xiamen",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "xiamen",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "xiamen",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "xiamen",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "xiamen",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "xiamen",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "changsha",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "changsha",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "changsha",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "changsha",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "changsha",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1024,
+      "city": "changsha",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1024,
+      "city": "changsha",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1024,
+      "city": "changsha",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1024,
+      "city": "changsha",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1024,
+      "city": "changsha",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "wuhan",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "wuhan",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "wuhan",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "wuhan",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "wuhan",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "wuhan",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "wuhan",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "wuhan",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "wuhan",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "wuhan",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "beijing",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "beijing",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "beijing",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "beijing",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "beijing",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "beijing",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "beijing",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "beijing",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "beijing",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "beijing",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "shanghai",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "shanghai",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "shanghai",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "shanghai",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "shanghai",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "shanghai",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "shanghai",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "shanghai",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "shanghai",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "shanghai",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "xian",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "xian",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "xian",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "xian",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "xian",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "xian",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "xian",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "xian",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "xian",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "xian",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "chengdu",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "chengdu",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "chengdu",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "chengdu",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "chengdu",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "chengdu",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "chengdu",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "chengdu",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "chengdu",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "chengdu",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "hangzhou",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "hangzhou",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "chongqing",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "chongqing",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "chongqing",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "chongqing",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "chongqing",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "chongqing",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "chongqing",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "chongqing",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "chongqing",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "chongqing",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "nanjing",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "nanjing",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "nanjing",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "nanjing",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "nanjing",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "nanjing",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "nanjing",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "nanjing",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "nanjing",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "nanjing",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "guangzhou",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "guangzhou",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "suzhou",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "suzhou",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "suzhou",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "suzhou",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "suzhou",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "suzhou",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "suzhou",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "suzhou",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "suzhou",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "suzhou",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "xiamen",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "xiamen",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "xiamen",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "xiamen",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "xiamen",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "xiamen",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "xiamen",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "xiamen",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "xiamen",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "xiamen",
+      "period": "night",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "changsha",
+      "period": "day",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "changsha",
+      "period": "day",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "changsha",
+      "period": "day",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "changsha",
+      "period": "day",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "changsha",
+      "period": "day",
+      "page": "finish"
+    },
+    {
+      "width": 1440,
+      "city": "changsha",
+      "period": "night",
+      "page": "index"
+    },
+    {
+      "width": 1440,
+      "city": "changsha",
+      "period": "night",
+      "page": "choose"
+    },
+    {
+      "width": 1440,
+      "city": "changsha",
+      "period": "night",
+      "page": "routes"
+    },
+    {
+      "width": 1440,
+      "city": "changsha",
+      "period": "night",
+      "page": "detail"
+    },
+    {
+      "width": 1440,
+      "city": "changsha",
+      "period": "night",
+      "page": "finish"
+    }
+  ],
+  "special": [
+    "direct finish is read-only",
+    "city/pinyin/landmark search, empty reset, combined filters, context carry",
+    "keyboard theme, tabs, dialog focus restore, reduced-motion manual carousel",
+    "legacy and conflicting/invalid query parameters",
+    "image failure fallback",
+    "blocked browser storage retains in-page state",
+    "file:// five pages",
+    "project subpath relative navigation"
+  ],
+  "errors": [],
+  "passed": true
+}
