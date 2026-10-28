@@ -77,7 +77,7 @@ nav .nav-cta {
 .story-slide[data-story="1"] .hero-shade {
   background: linear-gradient(90deg, #142c2ce6, #142c2c60 65%, #142c2c22);
 }
-.story-slide[data-story="2"] .hero-shade {
+.story-carousel[data-story-mode="night"] .hero-shade {
   background:
     linear-gradient(90deg, #081d37dc, #071a2c65 70%, #071a2c16),
     linear-gradient(0deg, #07192caa, transparent 55%);

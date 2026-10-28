@@ -1,0 +1,206 @@
+{
+  "version": "1.7",
+  "date": "2026-10-28",
+  "url": "http://127.0.0.1:4173/",
+  "stories": [
+    {
+      "city": "beijing",
+      "mode": "day",
+      "image": "beijing-nature",
+      "href": "choose.html?period=day&style=nature&city=beijing"
+    },
+    {
+      "city": "hangzhou",
+      "mode": "day",
+      "image": "hangzhou-nature",
+      "href": "choose.html?period=full&style=nature&city=hangzhou"
+    },
+    {
+      "city": "chongqing",
+      "mode": "day",
+      "image": "chongqing-city",
+      "href": "choose.html?period=day&style=city&city=chongqing"
+    },
+    {
+      "city": "beijing",
+      "mode": "night",
+      "image": "beijing-night",
+      "href": "choose.html?period=night&style=food&city=beijing"
+    },
+    {
+      "city": "hangzhou",
+      "mode": "night",
+      "image": "hangzhou-night",
+      "href": "choose.html?period=night&style=nature&city=hangzhou"
+    },
+    {
+      "city": "chongqing",
+      "mode": "night",
+      "image": "chongqing-night",
+      "href": "choose.html?period=night&style=city&city=chongqing"
+    }
+  ],
+  "layouts": [
+    {
+      "width": 320,
+      "mode": "day",
+      "city": "beijing"
+    },
+    {
+      "width": 320,
+      "mode": "day",
+      "city": "hangzhou"
+    },
+    {
+      "width": 320,
+      "mode": "day",
+      "city": "chongqing"
+    },
+    {
+      "width": 320,
+      "mode": "night",
+      "city": "beijing"
+    },
+    {
+      "width": 320,
+      "mode": "night",
+      "city": "hangzhou"
+    },
+    {
+      "width": 320,
+      "mode": "night",
+      "city": "chongqing"
+    },
+    {
+      "width": 390,
+      "mode": "day",
+      "city": "beijing"
+    },
+    {
+      "width": 390,
+      "mode": "day",
+      "city": "hangzhou"
+    },
+    {
+      "width": 390,
+      "mode": "day",
+      "city": "chongqing"
+    },
+    {
+      "width": 390,
+      "mode": "night",
+      "city": "beijing"
+    },
+    {
+      "width": 390,
+      "mode": "night",
+      "city": "hangzhou"
+    },
+    {
+      "width": 390,
+      "mode": "night",
+      "city": "chongqing"
+    },
+    {
+      "width": 768,
+      "mode": "day",
+      "city": "beijing"
+    },
+    {
+      "width": 768,
+      "mode": "day",
+      "city": "hangzhou"
+    },
+    {
+      "width": 768,
+      "mode": "day",
+      "city": "chongqing"
+    },
+    {
+      "width": 768,
+      "mode": "night",
+      "city": "beijing"
+    },
+    {
+      "width": 768,
+      "mode": "night",
+      "city": "hangzhou"
+    },
+    {
+      "width": 768,
+      "mode": "night",
+      "city": "chongqing"
+    },
+    {
+      "width": 1024,
+      "mode": "day",
+      "city": "beijing"
+    },
+    {
+      "width": 1024,
+      "mode": "day",
+      "city": "hangzhou"
+    },
+    {
+      "width": 1024,
+      "mode": "day",
+      "city": "chongqing"
+    },
+    {
+      "width": 1024,
+      "mode": "night",
+      "city": "beijing"
+    },
+    {
+      "width": 1024,
+      "mode": "night",
+      "city": "hangzhou"
+    },
+    {
+      "width": 1024,
+      "mode": "night",
+      "city": "chongqing"
+    },
+    {
+      "width": 1440,
+      "mode": "day",
+      "city": "beijing"
+    },
+    {
+      "width": 1440,
+      "mode": "day",
+      "city": "hangzhou"
+    },
+    {
+      "width": 1440,
+      "mode": "day",
+      "city": "chongqing"
+    },
+    {
+      "width": 1440,
+      "mode": "night",
+      "city": "beijing"
+    },
+    {
+      "width": 1440,
+      "mode": "night",
+      "city": "hangzhou"
+    },
+    {
+      "width": 1440,
+      "mode": "night",
+      "city": "chongqing"
+    }
+  ],
+  "checks": [
+    "首次进入、三种时段与已保存的日夜外观优先级，共九种组合",
+    "六组真实摄影与文案、地点、替代文字、按钮及偏好页选中项一致",
+    "键盘焦点与索引保留；二十次快速切换、旧图片迟到错误、刷新与记录不变",
+    "五种宽度、两种模式、三张轮播共三十项布局；减少动画手动轮播",
+    "六秒自动轮播、悬停暂停、聚焦暂停、手动暂停及暂停中换肤保留",
+    "浏览器存储被禁用时三张图文仍可来回切换",
+    "夜景加载失败使用占位，切回日光恢复正常图片，无跨模式假图"
+  ],
+  "errors": [],
+  "passed": true
+}

@@ -10,6 +10,16 @@ assert.equal(Object.keys(data.cities).length,12);
 assert.equal(data.routes.length,36);
 assert.equal(new Set(data.routes.map(r=>r.id)).size,36);
 assert.equal(Object.keys(data.themes).length,3);
+assert.deepEqual(Array.from(data.nationalStories,s=>s.cityId),['beijing','hangzhou','chongqing']);
+const heroTargets={day:[['nature','day'],['nature','full'],['city','day']],night:[['food','night'],['nature','night'],['city','night']]};
+for(const mode of ['day','night'])for(const [i,story] of data.nationalStories.entries()){
+ const variant=story[mode],target=heroTargets[mode][i];
+ assert.equal(variant.style,target[0]);assert.equal(variant.period,target[1]);
+ assert.ok(data.routes.some(r=>r.cityId===story.cityId&&r.theme===variant.style&&r.variants[variant.period]));
+ assert.equal(variant.image,`${story.cityId}-${mode==='night'?'night':i===2?'city':'nature'}`);
+ for(const field of ['alt','eyebrow','title','accent','text','button','caption'])assert.ok(variant[field],`${story.cityId}/${mode}/${field}`);
+ assert.ok(fs.existsSync(path.join(root,'assets/images',variant.image+'.jpg')));
+}
 assert.equal(data.nationalSelections.length,12);
 assert.equal(new Set(data.nationalSelections.map(p=>p.cityId)).size,12);
 assert.equal(new Set(data.nationalSelections.slice(0,6).map(p=>data.cities[p.cityId].region)).size,6);

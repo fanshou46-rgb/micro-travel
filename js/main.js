@@ -7,7 +7,7 @@
   const params = new URLSearchParams(location.search);
   const page = document.body.dataset.page;
   let period = experience.normalizePeriod(params);
-  // 外观与旅行时段分开：手动切换只改皮肤，明确重选时段后恢复自动联动。
+  // 外观与已选行程分开；首页故事随外观整组切换，各故事入口带入自己的时段。
   const appearanceKey = "daytrip.appearance.v1";
   let appearanceOverride = null;
   try {
@@ -26,7 +26,13 @@
     : "nature";
   const context = experience.resolveContext(params, page);
   const { city, cityId, route: baseRoute } = context;
-  const stories = data.nationalStories;
+  function currentAppearance() {
+    return appearanceOverride || (period === "night" ? "night" : "day");
+  }
+  function appearanceStories(theme = currentAppearance()) {
+    return data.nationalStories.map(story => ({cityId:story.cityId, ...story[theme]}));
+  }
+  let stories = appearanceStories();
   const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const route = baseRoute ? experience.routeView(baseRoute, period) : null;
   document.body.dataset.scope = context.scope;
@@ -92,7 +98,7 @@
     `<a data-carry-period href="${link(file)}" ${extra}>${text}</a>`;
 
   function applyAppearance() {
-    const theme = appearanceOverride || (period === "night" ? "night" : "day");
+    const theme = currentAppearance();
     const night = theme === "night";
     document.body.dataset.theme = theme;
     document.body.dataset.period = period;
@@ -112,6 +118,7 @@
         `${url.pathname.split("/").pop()}${url.search}${url.hash}`,
       );
     });
+    syncHeroAppearance(theme);
   }
   document.getElementById("site-header").innerHTML =
     `<div class="nav-wrap"><a data-carry-period class="brand" href="${link("index.html")}" aria-label="拾光微旅 首页">${logo}</a><nav id="navigation" aria-label="主导航">${carry("index.html", "首页", page === "home" ? 'aria-current="page"' : "")}${carry("routes.html", "探索路线", ["routes", "detail"].includes(page) ? 'aria-current="page"' : "")}${carry("footprints.html", "我的足迹", page === "footprints" ? 'aria-current="page"' : "")}<a data-carry-period href="${link("index.html")}#about">关于我们</a>${carry("choose.html", `开始微旅 ${arrow}`, 'class="btn nav-cta"')}</nav><div class="header-controls">${cityPicker("nav-city")}<button type="button" class="appearance-toggle" role="switch" aria-label="夜色模式" aria-checked="false"></button><button class="menu-toggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="navigation">${icon("menu")}</button></div></div>`;
@@ -196,7 +203,32 @@
   }
   function hero() {
     const initial = period === "night" ? 2 : period === "full" ? 1 : 0;
-    return `<section class="hero story-carousel" aria-label="微旅行灵感故事" aria-roledescription="轮播" data-slide="${initial}">${stories.map((story, i) => `<div class="story-slide ${i === initial ? "active" : ""}" data-story="${i}" aria-hidden="${i !== initial}" ${i !== initial ? "inert" : ""}><div class="hero-image">${image(story.image, `${periods[story.period].name}灵感摄影`, i === initial ? 'fetchpriority="high"' : 'loading="lazy"')}</div><div class="hero-shade"></div><div class="hero-content"><div class="eyebrow light"><span></span>${story.eyebrow}</div><h1>${story.title}<br><span>${story.accent}</span></h1><p>${story.text.replace("\n", "<br>")}</p><a class="btn btn-sand" href="${link("choose.html", {city:story.cityId,style:story.style}, story.period)}">${story.button} ${arrow}</a><span class="hero-note">每座城，日夜都有新发现。</span></div></div>`).join("")}<div class="hero-seal"><span>A LITTLE ESCAPE</span>${icon(period === "night" ? "moon" : "sun")}<span>DAYLIGHT & DARK</span></div><div class="hero-bottom"><span class="story-caption">${icon("pin")} ${stories[initial].caption}</span><div class="carousel-controls"><span class="story-counter">0${initial + 1} <small>/ 03</small></span><button class="carousel-control" data-carousel="prev" aria-label="上一张故事">${icon("back")}</button><button class="carousel-control" data-carousel="pause" aria-label="暂停轮播" aria-pressed="false">${icon("pause")}</button><button class="carousel-control" data-carousel="next" aria-label="下一张故事">${arrow}</button></div></div><span class="sr-only story-status" aria-live="polite"></span></section>`;
+    return `<section class="hero story-carousel" aria-label="微旅行灵感故事" aria-roledescription="轮播" data-slide="${initial}" data-story-mode="${currentAppearance()}">${stories.map((story, i) => `<div class="story-slide ${i === initial ? "active" : ""}" data-story="${i}" aria-hidden="${i !== initial}" ${i !== initial ? "inert" : ""}><div class="hero-image">${image(story.image, story.alt, i === initial ? 'fetchpriority="high"' : 'loading="lazy"')}</div><div class="hero-shade"></div><div class="hero-content"><div class="eyebrow light"><span></span>${story.eyebrow}</div><h1>${story.title}<br><span>${story.accent}</span></h1><p>${story.text.replace("\n", "<br>")}</p><a class="btn btn-sand" href="${link("choose.html", {city:story.cityId,style:story.style}, story.period)}">${story.button} ${arrow}</a><span class="hero-note">每座城，日夜都有新发现。</span></div></div>`).join("")}<div class="hero-seal"><span>A LITTLE ESCAPE</span>${icon(currentAppearance() === "night" ? "moon" : "sun")}<span>DAYLIGHT & DARK</span></div><div class="hero-bottom"><span class="story-caption">${icon("pin")} ${stories[initial].caption}</span><div class="carousel-controls"><span class="story-counter">0${initial + 1} <small>/ 03</small></span><button class="carousel-control" data-carousel="prev" aria-label="上一张故事">${icon("back")}</button><button class="carousel-control" data-carousel="pause" aria-label="暂停轮播" aria-pressed="false">${icon("pause")}</button><button class="carousel-control" data-carousel="next" aria-label="下一张故事">${arrow}</button></div></div><span class="sr-only story-status" aria-live="polite"></span></section>`;
+  }
+  function syncHeroAppearance(theme) {
+    stories = appearanceStories(theme);
+    const carousel = document.querySelector(".story-carousel");
+    if (!carousel) return;
+    // 原地更新三张故事，保留轮播索引、暂停原因及按钮焦点。
+    carousel.dataset.storyMode = theme;
+    carousel.querySelectorAll("[data-story]").forEach((slide, i) => {
+      const story = stories[i], frame = slide.querySelector(".hero-image");
+      if (frame.querySelector("img").getAttribute("src") !== `assets/images/${story.image}.jpg`) {
+        frame.classList.remove("image-unavailable");
+        frame.innerHTML = image(story.image, story.alt, slide.classList.contains("active") ? 'fetchpriority="high"' : 'loading="lazy"');
+        watchImages(frame);
+      }
+      slide.querySelector(".eyebrow").innerHTML = `<span></span>${esc(story.eyebrow)}`;
+      slide.querySelector("h1").innerHTML = `${esc(story.title)}<br><span>${esc(story.accent)}</span>`;
+      slide.querySelector(".hero-content > p").innerHTML = esc(story.text).replace("\n", "<br>");
+      const button = slide.querySelector(".btn");
+      button.href = link("choose.html", {city:story.cityId,style:story.style}, story.period);
+      button.innerHTML = `${esc(story.button)} ${arrow}`;
+    });
+    const index = Number(carousel.dataset.slide);
+    carousel.querySelector(".story-caption").innerHTML = `${icon("pin")} ${esc(stories[index].caption)}`;
+    carousel.querySelector(".hero-seal .icon").outerHTML = icon(theme === "night" ? "moon" : "sun");
+    carousel.querySelector(".story-status").textContent = `${theme === "night" ? "夜色" : "日光"}故事已更新，${stories[index].caption}，第 ${index+1} 张，共 3 张。`;
   }
   function staySection() {
     return `<section class="stay-section" id="stays"><div class="section-heading"><div><div class="eyebrow">LET THE GOOD DAY LAST A LITTLE LONGER</div><h2>还没玩尽兴？<br><span class="serif-accent">不如多留一晚。</span></h2></div><p>给今晚一个舒服的落脚点，<br>也给明早，多一个期待。</p></div><div class="stay-grid">${data.stays
@@ -495,10 +527,24 @@
     window.addEventListener("pagehide", () => clearInterval(timer));
     updatePause();
     restart();
+    // 首屏加载后，在空闲时缓存另一组摄影；当前未显示的故事仍保留懒加载。
+    const preloadedStories = [];
+    const preloadOtherAppearance = () => {
+      const opposite = currentAppearance() === "night" ? "day" : "night";
+      appearanceStories(opposite).forEach(story => {
+        const img = new Image();
+        img.decoding = "async";
+        img.src = `assets/images/${story.image}.jpg`;
+        preloadedStories.push(img);
+      });
+    };
+    if ("requestIdleCallback" in window) requestIdleCallback(preloadOtherAppearance, {timeout:1500});
+    else setTimeout(preloadOtherAppearance, 500);
   }
   function watchImages(root = document) {
     root.querySelectorAll("img").forEach((img) => {
       const fallback = () => {
+        if (!img.parentElement) return; // 旧图片在切换后才返回错误时，不影响新故事。
         img.style.display = "none";
         img.parentElement.classList.add("image-unavailable");
       };

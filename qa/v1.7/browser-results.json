@@ -1,0 +1,885 @@
+{
+  "version": "1.7",
+  "date": "2026-10-28",
+  "details": [
+    {
+      "route": "donghu",
+      "period": "day"
+    },
+    {
+      "route": "donghu",
+      "period": "night"
+    },
+    {
+      "route": "donghu",
+      "period": "full"
+    },
+    {
+      "route": "jianghan",
+      "period": "day"
+    },
+    {
+      "route": "jianghan",
+      "period": "night"
+    },
+    {
+      "route": "jianghan",
+      "period": "full"
+    },
+    {
+      "route": "wuhan-food",
+      "period": "day"
+    },
+    {
+      "route": "wuhan-food",
+      "period": "night"
+    },
+    {
+      "route": "wuhan-food",
+      "period": "full"
+    },
+    {
+      "route": "hangzhou-nature",
+      "period": "day"
+    },
+    {
+      "route": "hangzhou-nature",
+      "period": "night"
+    },
+    {
+      "route": "hangzhou-nature",
+      "period": "full"
+    },
+    {
+      "route": "hangzhou-city",
+      "period": "day"
+    },
+    {
+      "route": "hangzhou-city",
+      "period": "night"
+    },
+    {
+      "route": "hangzhou-city",
+      "period": "full"
+    },
+    {
+      "route": "hangzhou-food",
+      "period": "day"
+    },
+    {
+      "route": "hangzhou-food",
+      "period": "night"
+    },
+    {
+      "route": "hangzhou-food",
+      "period": "full"
+    },
+    {
+      "route": "beijing-nature",
+      "period": "day"
+    },
+    {
+      "route": "beijing-nature",
+      "period": "night"
+    },
+    {
+      "route": "beijing-nature",
+      "period": "full"
+    },
+    {
+      "route": "beijing-city",
+      "period": "day"
+    },
+    {
+      "route": "beijing-city",
+      "period": "night"
+    },
+    {
+      "route": "beijing-city",
+      "period": "full"
+    },
+    {
+      "route": "beijing-food",
+      "period": "day"
+    },
+    {
+      "route": "beijing-food",
+      "period": "night"
+    },
+    {
+      "route": "beijing-food",
+      "period": "full"
+    },
+    {
+      "route": "shanghai-nature",
+      "period": "day"
+    },
+    {
+      "route": "shanghai-nature",
+      "period": "night"
+    },
+    {
+      "route": "shanghai-nature",
+      "period": "full"
+    },
+    {
+      "route": "shanghai-city",
+      "period": "day"
+    },
+    {
+      "route": "shanghai-city",
+      "period": "night"
+    },
+    {
+      "route": "shanghai-city",
+      "period": "full"
+    },
+    {
+      "route": "shanghai-food",
+      "period": "day"
+    },
+    {
+      "route": "shanghai-food",
+      "period": "night"
+    },
+    {
+      "route": "shanghai-food",
+      "period": "full"
+    },
+    {
+      "route": "xian-nature",
+      "period": "day"
+    },
+    {
+      "route": "xian-nature",
+      "period": "night"
+    },
+    {
+      "route": "xian-nature",
+      "period": "full"
+    },
+    {
+      "route": "xian-city",
+      "period": "day"
+    },
+    {
+      "route": "xian-city",
+      "period": "night"
+    },
+    {
+      "route": "xian-city",
+      "period": "full"
+    },
+    {
+      "route": "xian-food",
+      "period": "day"
+    },
+    {
+      "route": "xian-food",
+      "period": "night"
+    },
+    {
+      "route": "xian-food",
+      "period": "full"
+    },
+    {
+      "route": "chengdu-nature",
+      "period": "day"
+    },
+    {
+      "route": "chengdu-nature",
+      "period": "night"
+    },
+    {
+      "route": "chengdu-nature",
+      "period": "full"
+    },
+    {
+      "route": "chengdu-city",
+      "period": "day"
+    },
+    {
+      "route": "chengdu-city",
+      "period": "night"
+    },
+    {
+      "route": "chengdu-city",
+      "period": "full"
+    },
+    {
+      "route": "chengdu-food",
+      "period": "day"
+    },
+    {
+      "route": "chengdu-food",
+      "period": "night"
+    },
+    {
+      "route": "chengdu-food",
+      "period": "full"
+    },
+    {
+      "route": "chongqing-nature",
+      "period": "day"
+    },
+    {
+      "route": "chongqing-nature",
+      "period": "night"
+    },
+    {
+      "route": "chongqing-nature",
+      "period": "full"
+    },
+    {
+      "route": "chongqing-city",
+      "period": "day"
+    },
+    {
+      "route": "chongqing-city",
+      "period": "night"
+    },
+    {
+      "route": "chongqing-city",
+      "period": "full"
+    },
+    {
+      "route": "chongqing-food",
+      "period": "day"
+    },
+    {
+      "route": "chongqing-food",
+      "period": "night"
+    },
+    {
+      "route": "chongqing-food",
+      "period": "full"
+    },
+    {
+      "route": "nanjing-nature",
+      "period": "day"
+    },
+    {
+      "route": "nanjing-nature",
+      "period": "night"
+    },
+    {
+      "route": "nanjing-nature",
+      "period": "full"
+    },
+    {
+      "route": "nanjing-city",
+      "period": "day"
+    },
+    {
+      "route": "nanjing-city",
+      "period": "night"
+    },
+    {
+      "route": "nanjing-city",
+      "period": "full"
+    },
+    {
+      "route": "nanjing-food",
+      "period": "day"
+    },
+    {
+      "route": "nanjing-food",
+      "period": "night"
+    },
+    {
+      "route": "nanjing-food",
+      "period": "full"
+    },
+    {
+      "route": "guangzhou-nature",
+      "period": "day"
+    },
+    {
+      "route": "guangzhou-nature",
+      "period": "night"
+    },
+    {
+      "route": "guangzhou-nature",
+      "period": "full"
+    },
+    {
+      "route": "guangzhou-city",
+      "period": "day"
+    },
+    {
+      "route": "guangzhou-city",
+      "period": "night"
+    },
+    {
+      "route": "guangzhou-city",
+      "period": "full"
+    },
+    {
+      "route": "guangzhou-food",
+      "period": "day"
+    },
+    {
+      "route": "guangzhou-food",
+      "period": "night"
+    },
+    {
+      "route": "guangzhou-food",
+      "period": "full"
+    },
+    {
+      "route": "suzhou-nature",
+      "period": "day"
+    },
+    {
+      "route": "suzhou-nature",
+      "period": "night"
+    },
+    {
+      "route": "suzhou-nature",
+      "period": "full"
+    },
+    {
+      "route": "suzhou-city",
+      "period": "day"
+    },
+    {
+      "route": "suzhou-city",
+      "period": "night"
+    },
+    {
+      "route": "suzhou-city",
+      "period": "full"
+    },
+    {
+      "route": "suzhou-food",
+      "period": "day"
+    },
+    {
+      "route": "suzhou-food",
+      "period": "night"
+    },
+    {
+      "route": "suzhou-food",
+      "period": "full"
+    },
+    {
+      "route": "xiamen-nature",
+      "period": "day"
+    },
+    {
+      "route": "xiamen-nature",
+      "period": "night"
+    },
+    {
+      "route": "xiamen-nature",
+      "period": "full"
+    },
+    {
+      "route": "xiamen-city",
+      "period": "day"
+    },
+    {
+      "route": "xiamen-city",
+      "period": "night"
+    },
+    {
+      "route": "xiamen-city",
+      "period": "full"
+    },
+    {
+      "route": "xiamen-food",
+      "period": "day"
+    },
+    {
+      "route": "xiamen-food",
+      "period": "night"
+    },
+    {
+      "route": "xiamen-food",
+      "period": "full"
+    },
+    {
+      "route": "changsha-nature",
+      "period": "day"
+    },
+    {
+      "route": "changsha-nature",
+      "period": "night"
+    },
+    {
+      "route": "changsha-nature",
+      "period": "full"
+    },
+    {
+      "route": "changsha-city",
+      "period": "day"
+    },
+    {
+      "route": "changsha-city",
+      "period": "night"
+    },
+    {
+      "route": "changsha-city",
+      "period": "full"
+    },
+    {
+      "route": "changsha-food",
+      "period": "day"
+    },
+    {
+      "route": "changsha-food",
+      "period": "night"
+    },
+    {
+      "route": "changsha-food",
+      "period": "full"
+    }
+  ],
+  "flows": [
+    "wuhan",
+    "beijing",
+    "shanghai",
+    "xian",
+    "chengdu",
+    "hangzhou",
+    "chongqing",
+    "nanjing",
+    "guangzhou",
+    "suzhou",
+    "xiamen",
+    "changsha"
+  ],
+  "layouts": [
+    {
+      "width": 320,
+      "period": "day",
+      "page": "index",
+      "state": "default"
+    },
+    {
+      "width": 320,
+      "period": "day",
+      "page": "choose",
+      "state": "default"
+    },
+    {
+      "width": 320,
+      "period": "day",
+      "page": "routes",
+      "state": "default"
+    },
+    {
+      "width": 320,
+      "period": "day",
+      "page": "detail",
+      "state": "default"
+    },
+    {
+      "width": 320,
+      "period": "day",
+      "page": "finish",
+      "state": "default"
+    },
+    {
+      "width": 320,
+      "period": "day",
+      "page": "footprints",
+      "state": "populated"
+    },
+    {
+      "width": 320,
+      "period": "night",
+      "page": "index",
+      "state": "default"
+    },
+    {
+      "width": 320,
+      "period": "night",
+      "page": "choose",
+      "state": "default"
+    },
+    {
+      "width": 320,
+      "period": "night",
+      "page": "routes",
+      "state": "default"
+    },
+    {
+      "width": 320,
+      "period": "night",
+      "page": "detail",
+      "state": "default"
+    },
+    {
+      "width": 320,
+      "period": "night",
+      "page": "finish",
+      "state": "default"
+    },
+    {
+      "width": 320,
+      "period": "night",
+      "page": "footprints",
+      "state": "populated"
+    },
+    {
+      "width": 390,
+      "period": "day",
+      "page": "index",
+      "state": "default"
+    },
+    {
+      "width": 390,
+      "period": "day",
+      "page": "choose",
+      "state": "default"
+    },
+    {
+      "width": 390,
+      "period": "day",
+      "page": "routes",
+      "state": "default"
+    },
+    {
+      "width": 390,
+      "period": "day",
+      "page": "detail",
+      "state": "default"
+    },
+    {
+      "width": 390,
+      "period": "day",
+      "page": "finish",
+      "state": "default"
+    },
+    {
+      "width": 390,
+      "period": "day",
+      "page": "footprints",
+      "state": "populated"
+    },
+    {
+      "width": 390,
+      "period": "night",
+      "page": "index",
+      "state": "default"
+    },
+    {
+      "width": 390,
+      "period": "night",
+      "page": "choose",
+      "state": "default"
+    },
+    {
+      "width": 390,
+      "period": "night",
+      "page": "routes",
+      "state": "default"
+    },
+    {
+      "width": 390,
+      "period": "night",
+      "page": "detail",
+      "state": "default"
+    },
+    {
+      "width": 390,
+      "period": "night",
+      "page": "finish",
+      "state": "default"
+    },
+    {
+      "width": 390,
+      "period": "night",
+      "page": "footprints",
+      "state": "populated"
+    },
+    {
+      "width": 768,
+      "period": "day",
+      "page": "index",
+      "state": "default"
+    },
+    {
+      "width": 768,
+      "period": "day",
+      "page": "choose",
+      "state": "default"
+    },
+    {
+      "width": 768,
+      "period": "day",
+      "page": "routes",
+      "state": "default"
+    },
+    {
+      "width": 768,
+      "period": "day",
+      "page": "detail",
+      "state": "default"
+    },
+    {
+      "width": 768,
+      "period": "day",
+      "page": "finish",
+      "state": "default"
+    },
+    {
+      "width": 768,
+      "period": "day",
+      "page": "footprints",
+      "state": "populated"
+    },
+    {
+      "width": 768,
+      "period": "night",
+      "page": "index",
+      "state": "default"
+    },
+    {
+      "width": 768,
+      "period": "night",
+      "page": "choose",
+      "state": "default"
+    },
+    {
+      "width": 768,
+      "period": "night",
+      "page": "routes",
+      "state": "default"
+    },
+    {
+      "width": 768,
+      "period": "night",
+      "page": "detail",
+      "state": "default"
+    },
+    {
+      "width": 768,
+      "period": "night",
+      "page": "finish",
+      "state": "default"
+    },
+    {
+      "width": 768,
+      "period": "night",
+      "page": "footprints",
+      "state": "populated"
+    },
+    {
+      "width": 1024,
+      "period": "day",
+      "page": "index",
+      "state": "default"
+    },
+    {
+      "width": 1024,
+      "period": "day",
+      "page": "choose",
+      "state": "default"
+    },
+    {
+      "width": 1024,
+      "period": "day",
+      "page": "routes",
+      "state": "default"
+    },
+    {
+      "width": 1024,
+      "period": "day",
+      "page": "detail",
+      "state": "default"
+    },
+    {
+      "width": 1024,
+      "period": "day",
+      "page": "finish",
+      "state": "default"
+    },
+    {
+      "width": 1024,
+      "period": "day",
+      "page": "footprints",
+      "state": "populated"
+    },
+    {
+      "width": 1024,
+      "period": "night",
+      "page": "index",
+      "state": "default"
+    },
+    {
+      "width": 1024,
+      "period": "night",
+      "page": "choose",
+      "state": "default"
+    },
+    {
+      "width": 1024,
+      "period": "night",
+      "page": "routes",
+      "state": "default"
+    },
+    {
+      "width": 1024,
+      "period": "night",
+      "page": "detail",
+      "state": "default"
+    },
+    {
+      "width": 1024,
+      "period": "night",
+      "page": "finish",
+      "state": "default"
+    },
+    {
+      "width": 1024,
+      "period": "night",
+      "page": "footprints",
+      "state": "populated"
+    },
+    {
+      "width": 1440,
+      "period": "day",
+      "page": "index",
+      "state": "default"
+    },
+    {
+      "width": 1440,
+      "period": "day",
+      "page": "choose",
+      "state": "default"
+    },
+    {
+      "width": 1440,
+      "period": "day",
+      "page": "routes",
+      "state": "default"
+    },
+    {
+      "width": 1440,
+      "period": "day",
+      "page": "detail",
+      "state": "default"
+    },
+    {
+      "width": 1440,
+      "period": "day",
+      "page": "finish",
+      "state": "default"
+    },
+    {
+      "width": 1440,
+      "period": "day",
+      "page": "footprints",
+      "state": "populated"
+    },
+    {
+      "width": 1440,
+      "period": "night",
+      "page": "index",
+      "state": "default"
+    },
+    {
+      "width": 1440,
+      "period": "night",
+      "page": "choose",
+      "state": "default"
+    },
+    {
+      "width": 1440,
+      "period": "night",
+      "page": "routes",
+      "state": "default"
+    },
+    {
+      "width": 1440,
+      "period": "night",
+      "page": "detail",
+      "state": "default"
+    },
+    {
+      "width": 1440,
+      "period": "night",
+      "page": "finish",
+      "state": "default"
+    },
+    {
+      "width": 1440,
+      "period": "night",
+      "page": "footprints",
+      "state": "populated"
+    },
+    {
+      "width": 320,
+      "period": "day",
+      "page": "footprints",
+      "state": "empty"
+    },
+    {
+      "width": 320,
+      "period": "night",
+      "page": "footprints",
+      "state": "empty"
+    },
+    {
+      "width": 390,
+      "period": "day",
+      "page": "footprints",
+      "state": "empty"
+    },
+    {
+      "width": 390,
+      "period": "night",
+      "page": "footprints",
+      "state": "empty"
+    },
+    {
+      "width": 768,
+      "period": "day",
+      "page": "footprints",
+      "state": "empty"
+    },
+    {
+      "width": 768,
+      "period": "night",
+      "page": "footprints",
+      "state": "empty"
+    },
+    {
+      "width": 1024,
+      "period": "day",
+      "page": "footprints",
+      "state": "empty"
+    },
+    {
+      "width": 1024,
+      "period": "night",
+      "page": "footprints",
+      "state": "empty"
+    },
+    {
+      "width": 1440,
+      "period": "day",
+      "page": "footprints",
+      "state": "empty"
+    },
+    {
+      "width": 1440,
+      "period": "night",
+      "page": "footprints",
+      "state": "empty"
+    }
+  ],
+  "checks": [
+    "全国首页不预选武汉；六地区精选、十二城展开、显式入口时段和十二城人工榜单",
+    "目的地必选；全国36条、同城3条；地区兴趣关键词叠加、零结果、重置及详情返回筛选",
+    "武汉日间与杭州夜间分城记章；跨城总览只读；同城双章解锁；按城筛选及重看行程",
+    "无效行程空态与旧链接；城市搜索和空态；键盘外观切换",
+    "空足迹与已探索筛选零结果；v1迁移到v2、旧键保留及刷新",
+    "存储被禁用仍可浏览；图片失败样式",
+    "file://六页与本地项目子路径相对导航；直接打开后完成行程可跨页显示足迹"
+  ],
+  "errors": [],
+  "passed": true
+}

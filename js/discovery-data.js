@@ -19,9 +19,15 @@
   const routeId=(cityId,theme)=>d.routes.find(r=>r.cityId===cityId&&r.theme===theme).id;
   d.nationalSelections=selected.map(([cityId,name,theme,period,reason])=>({cityId,name,theme,period,reason,routeId:routeId(cityId,theme),image:d.cities[cityId].images[period==='night'?'night':theme]}));
   d.nationalStories=[
-    {cityId:'beijing',style:'nature',period:'day',image:'beijing-nature',eyebrow:'BEIJING / A LITTLE SUNSHINE',title:'留半天，走进园林，',accent:'让湖风慢慢吹。',text:'北京的长廊与湖面，值得从容看一眼。\n下一次小出走，从想去的地方开始。',button:'去北京，遇见日间湖光',caption:'北京 · 颐和园 / 日间灵感'},
-    {cityId:'hangzhou',style:'nature',period:'full',image:'hangzhou-nature',eyebrow:'HANGZHOU / A DAY WELL SPENT',title:'把一天交给湖山，',accent:'把喜欢留给自己。',text:'杭州的湖岸与街巷，藏着刚刚好的松弛。\n十二座城市，各有值得停留的日常。',button:'去杭州，收藏一日时光',caption:'杭州 · 西湖 / 一日灵感'},
-    {cityId:'chongqing',style:'city',period:'night',image:'chongqing-night',eyebrow:'CHONGQING / AFTER DARK',title:'当山城亮起灯，',accent:'去遇见另一种风景。',text:'重庆的街道与江岸，夜里换一种表情。\n跟着喜欢出发，把旅程写进自己的足迹。',button:'去重庆，探索山城夜色',caption:'重庆 · 洪崖洞 / 夜游灵感'},
+    {cityId:'beijing',
+      day:{style:'nature',period:'day',image:'beijing-nature',alt:'北京颐和园日间湖光实景参考',eyebrow:'BEIJING / A LITTLE SUNSHINE',title:'留半天，走进园林，',accent:'让湖风慢慢吹。',text:'北京的长廊与湖面，值得从容看一眼。\n下一次小出走，从想去的地方开始。',button:'去北京，遇见日间湖光',caption:'北京 · 颐和园 / 日间灵感'},
+      night:{style:'food',period:'night',image:'beijing-night',alt:'北京前门街区灯火与牌楼夜景实景参考',eyebrow:'BEIJING / LIGHTS ALONG THE LANES',title:'等前门灯火亮起，',accent:'慢慢尝一口京味。',text:'沿前门与大栅栏的街巷，看看灯下的老北京。\n把晚餐和散步，留给同一个夜晚。',button:'去北京，漫游前门夜色',caption:'北京 · 前门街区 / 夜游灵感'}},
+    {cityId:'hangzhou',
+      day:{style:'nature',period:'full',image:'hangzhou-nature',alt:'杭州西湖日间湖面与游船实景参考',eyebrow:'HANGZHOU / A DAY WELL SPENT',title:'把一天交给湖山，',accent:'把喜欢留给自己。',text:'杭州的湖岸与街巷，藏着刚刚好的松弛。\n十二座城市，各有值得停留的日常。',button:'去杭州，收藏一日时光',caption:'杭州 · 西湖 / 一日灵感'},
+      night:{style:'nature',period:'night',image:'hangzhou-night',alt:'杭州西湖夜间湖岸灯影实景参考',eyebrow:'HANGZHOU / A LITTLE LAKE AFTER DARK',title:'把脚步放轻一点，',accent:'听西湖入夜的风。',text:'沿近处的公共湖岸，看看水面上的灯影。\n晚餐之后，给自己留一段湖边时光。',button:'去杭州，遇见西湖夜色',caption:'杭州 · 西湖湖岸 / 夜游灵感'}},
+    {cityId:'chongqing',
+      day:{style:'city',period:'day',image:'chongqing-city',alt:'重庆解放碑商圈日间街景实景参考',eyebrow:'CHONGQING / STREETS IN THE SUNLIGHT',title:'跟着街巷的起伏，',accent:'慢慢读懂山城。',text:'从解放碑出发，看看阳光里的街道与建筑。\n留一点步行的时间，认识立体重庆。',button:'去重庆，发现日间山城',caption:'重庆 · 解放碑 / 日间灵感'},
+      night:{style:'city',period:'night',image:'chongqing-night',alt:'重庆洪崖洞吊脚楼夜间灯火实景参考',eyebrow:'CHONGQING / AFTER DARK',title:'当山城亮起灯，',accent:'去遇见另一种风景。',text:'重庆的街道与江岸，夜里换一种表情。\n跟着喜欢出发，把旅程写进自己的足迹。',button:'去重庆，探索山城夜色',caption:'重庆 · 洪崖洞 / 夜游灵感'}},
   ];
   // 显式选取代表景点，排除行程中的入口、休息点与返程站。
   // 每行字段：景点、主题路线、匹配时段、图像主题。
